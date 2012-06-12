@@ -3,7 +3,6 @@ Contains MATLAB/OCTAVE, R, Python, and Haskell implementations of various machin
 TO IMPLEMENT
 ------------
 
- - LogLoss
  - CategorizationAccuracy
  - Gini
  - NormalizedGini
@@ -14,6 +13,7 @@ PARTIALLY IMPLEMENTED
 
  - AUC
  - RMSE
+ - LogLoss
  - MAE
  - QuadraticWeightedKappa
  - MeanQuadraticWeightedKappa
