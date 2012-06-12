@@ -3,6 +3,7 @@ function testMetrics()
 
 fprintf('TESTING METRICS\n');
 
+testAveragePrecisionAtK;
 testAUC;
 testQuadraticWeightedKappa;
 testMAE;

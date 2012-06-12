@@ -4,6 +4,22 @@ TO IMPLEMENT
 ------------
 
 -Mean Average Precision
+-LogLoss
+-CategorizationAccuracy
+-Gini
+-NormalizedGini
+-LevensteinDistance
+-RMSLE
+
+PARTIALLY IMPLEMENTED
+---------------------
+
 -AUC
 -RMSE
 -MAE
+-QuadraticWeightedKappa
+-MeanQuadraticWeightedKappa
+-AveragePrecisionAtK
+
+Fully Implemented
+-----------------
