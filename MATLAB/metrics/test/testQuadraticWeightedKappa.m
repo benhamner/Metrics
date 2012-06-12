@@ -31,4 +31,4 @@ assert(abs(0.0-kappa) < eps);
 kappa = meanQuadraticWeightedKappa([0.5 0.8], [1.0, 0.5]);
 assert(abs(0.624536446425734-kappa) < eps);
 
-fprintf('Quadratic Weighted Kapa tests passed\n');
+fprintf('tests passed\n');

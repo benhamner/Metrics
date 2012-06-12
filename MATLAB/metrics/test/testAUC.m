@@ -26,4 +26,4 @@ posterior = ones(size(actual));
 score = auc(actual, posterior);
 assert(abs(1/2-score) < eps);
 
-fprintf('AUC tests passed\n');
+fprintf('tests passed\n');
