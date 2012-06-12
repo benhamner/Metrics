@@ -7,6 +7,7 @@ fprintf('TESTING METRICS\n');
 
 testAveragePrecisionAtK;
 testAUC;
+testLogLoss;
 testQuadraticWeightedKappa;
 testMAE;
 testMeanAveragePrecisionAtK;
