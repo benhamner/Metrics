@@ -3,7 +3,10 @@ function testMetrics()
 
 fprintf('TESTING METRICS\n');
 
-testQuadraticWeightedKappa;
 testAUC;
+testQuadraticWeightedKappa;
+testMAE;
+testMSE;
+testRMSE;
 
 fprintf('ALL TESTS PASSED\n');
