@@ -1,5 +1,5 @@
-function score = scoreQuadraticWeightedKappa(X, minRating, maxRating)
-%SCOREQUADRATICWEIGHTEDKAPPA    Calculates the quadratic weighted kappa
+function score = quadraticWeightedKappa(actual, predicted, minRating, maxRating)
+%QUADRATICWEIGHTEDKAPPA    Calculates the quadratic weighted kappa
 %   scoreQuadraticWeightedKappa calculates the quadratic weighted kappa
 %   value, which is a measure of inter-rater agreement between two raters
 %   that provide discrete numeric ratings.  Potential values range from -1  
@@ -20,6 +20,8 @@ function score = scoreQuadraticWeightedKappa(X, minRating, maxRating)
 %   rating
 %   
 %   Author: Ben Hamner (ben@benhamner.com)
+
+X = [actual(:) predicted(:)];
 
 if nargin==3
     M = confusionMatrix(X, minRating, maxRating);
