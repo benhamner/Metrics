@@ -1,5 +1,7 @@
 function testMetrics()
 %TESTMETRICS   Runs all test cases for the metrics library
+%
+%   Author: Ben Hamner (ben@benhamner.com)
 
 fprintf('TESTING METRICS\n');
 

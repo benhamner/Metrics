@@ -8,8 +8,7 @@ function auc = auc(category,posterior)
 % category: n*1 matrix of categories {0,1}
 % auc: Area under the curve
 %
-% Author: Benjamin Hamner
-% Date Modified: October 14, 2010
+% Author: Ben Hamner (ben@benhamner.com)
 %
 % Algorithm found in
 % A  Simple Generalisation of the Area Under the ROC

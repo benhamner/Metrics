@@ -1,5 +1,7 @@
 function setup
 %SETUP Adds directories for Metrics to your MATLAB path
+%
+%   Author: Ben Hamner (ben@benhamner.com)
 
 myDir = fileparts(mfilename('fullpath'));
 paths = genpath(myDir);
