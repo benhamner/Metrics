@@ -21,5 +21,5 @@ PARTIALLY IMPLEMENTED
  - MeanQuadraticWeightedKappa
  - AveragePrecisionAtK
 
-Fully Implemented
+FULLY IMPLEMENTED
 -----------------
