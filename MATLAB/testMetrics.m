@@ -7,6 +7,7 @@ testAveragePrecisionAtK;
 testAUC;
 testQuadraticWeightedKappa;
 testMAE;
+testMeanAveragePrecisionAtK;
 testMSE;
 testRMSE;
 

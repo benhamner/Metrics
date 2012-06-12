@@ -3,7 +3,6 @@ Contains MATLAB/OCTAVE, R, Python, and Haskell implementations of various machin
 TO IMPLEMENT
 ------------
 
- - Mean Average Precision
  - LogLoss
  - CategorizationAccuracy
  - Gini
@@ -20,6 +19,7 @@ PARTIALLY IMPLEMENTED
  - QuadraticWeightedKappa
  - MeanQuadraticWeightedKappa
  - AveragePrecisionAtK
+ - MeanAveragePrecisionAtK
 
 FULLY IMPLEMENTED
 -----------------
