@@ -8,7 +8,6 @@ TO IMPLEMENT
  - Gini
  - NormalizedGini
  - LevensteinDistance
- - RMSLE
 
 PARTIALLY IMPLEMENTED
 ---------------------
@@ -22,6 +21,7 @@ PARTIALLY IMPLEMENTED
  - MeanAveragePrecisionAtK
  - MSLE
  - MSE
+ - RMSLE
 
 FULLY IMPLEMENTED
 -----------------

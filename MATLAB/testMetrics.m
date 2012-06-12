@@ -11,5 +11,6 @@ testMeanAveragePrecisionAtK;
 testMSE;
 testMSLE;
 testRMSE;
+testRMSLE;
 
 fprintf('ALL TESTS PASSED\n');
