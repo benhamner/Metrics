@@ -3,23 +3,23 @@ Contains MATLAB/OCTAVE, R, Python, and Haskell implementations of various machin
 TO IMPLEMENT
 ------------
 
--Mean Average Precision
--LogLoss
--CategorizationAccuracy
--Gini
--NormalizedGini
--LevensteinDistance
--RMSLE
+ - Mean Average Precision
+ - LogLoss
+ - CategorizationAccuracy
+ - Gini
+ - NormalizedGini
+ - LevensteinDistance
+ - RMSLE
 
 PARTIALLY IMPLEMENTED
 ---------------------
 
--AUC
--RMSE
--MAE
--QuadraticWeightedKappa
--MeanQuadraticWeightedKappa
--AveragePrecisionAtK
+ - AUC
+ - RMSE
+ - MAE
+ - QuadraticWeightedKappa
+ - MeanQuadraticWeightedKappa
+ - AveragePrecisionAtK
 
 Fully Implemented
 -----------------
