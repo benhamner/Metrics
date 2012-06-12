@@ -9,6 +9,7 @@ testQuadraticWeightedKappa;
 testMAE;
 testMeanAveragePrecisionAtK;
 testMSE;
+testMSLE;
 testRMSE;
 
 fprintf('ALL TESTS PASSED\n');

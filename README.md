@@ -20,6 +20,8 @@ PARTIALLY IMPLEMENTED
  - MeanQuadraticWeightedKappa
  - AveragePrecisionAtK
  - MeanAveragePrecisionAtK
+ - MSLE
+ - MSE
 
 FULLY IMPLEMENTED
 -----------------
