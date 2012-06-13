@@ -33,3 +33,13 @@ ll 0 y = -log (1-y)
 
 logLoss :: [Double] -> [Double] -> Double
 logLoss = meanZipWith ll
+
+apk :: Int -> [Integer] -> [Integer] -> Double
+apk k actual predicted = (apsum actual (take k predicted) [] 0.0 0.0 0.0) / (fromIntegral (min k (length actual))) where
+    apsum _ [] _ acc _ _ = acc
+    apsum actual (p:ps) visited acc i j
+        | (elem p actual) && (not (elem p visited)) = apsum actual ps (p:visited) (acc+(i+1.0)/(j+1.0)) (i+1.0) (j+1.0) 
+        | otherwise = apsum actual ps visited acc i (j+1.0)
+
+mapk :: Int -> [[Integer]] -> [[Integer]] -> Double
+mapk k = meanZipWith (apk k)
