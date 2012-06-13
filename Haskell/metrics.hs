@@ -26,3 +26,10 @@ rmse = (sqrt .) . mse
 
 rmsle :: [Double] -> [Double] -> Double
 rmsle = (sqrt .) . msle
+
+ll :: Double -> Double -> Double
+ll 1 y = -log y
+ll 0 y = -log (1-y)
+
+logLoss :: [Double] -> [Double] -> Double
+logLoss = meanZipWith ll
