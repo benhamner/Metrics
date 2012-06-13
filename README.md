@@ -32,3 +32,18 @@ TO IMPLEMENT
  - Gini
  - NormalizedGini
  - LevensteinDistance
+
+PROPERTIES METRICS CAN HAVE
+---------------------------
+
+ - Min or Max (optimize through minimization or maximization)
+ - Binary Classification
+   - Scores predicted class labels
+   - Scores predicted ranking (most likeley to least likely for being in one class)
+   - Scores predicted probabilities
+ - Multiclass Classification
+   - Scores predicted class labels
+   - Scores predicted probabilities
+ - Regression
+ - Discrete Rater Comparison (confusion matrix)
+
