@@ -1,6 +1,6 @@
 Name:           Metrics
 Version:        0.1
-Cabal-Version:  >= 1.10
+Cabal-Version:  >= 1.2
 License:        BSD3
 License-File:   LICENSE
 Author:         Ben Hamner (ben@benhamner.com)
