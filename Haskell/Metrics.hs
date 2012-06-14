@@ -1,4 +1,19 @@
 
+module Metrics
+    ( ae
+    , se
+    , sle
+    , mae
+    , mse
+    , msle
+    , rmse
+    , rmsle
+    , ll
+    , logLoss
+    , apk
+    , mapk
+    ) where
+
 import Math.Statistics (mean)
 
 ae :: Num a => a -> a -> a

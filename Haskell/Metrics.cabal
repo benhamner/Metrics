@@ -1,6 +1,7 @@
 Name:           Metrics
 Version:        0.1
 Cabal-Version:  >= 1.2
+Build-Type:     Simple
 License:        BSD3
 License-File:   LICENSE
 Author:         Ben Hamner (ben@benhamner.com)
@@ -8,4 +9,7 @@ Homepage:       http://github.com/benhamner/Metrics/
 Category:       Statistics
 Synopsis:       Evaluation metrics commonly used in supervised machine learning
 
-
+Library
+    build-depends:      base
+                       ,hstats
+    Exposed-modules:    Metrics
