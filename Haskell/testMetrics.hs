@@ -1,19 +1,58 @@
 
+import Control.Monad (unless)
 import Test.HUnit
 import Metrics
 
+assertAlmostEqual :: String  -- ^ The message prefix
+                     -> Double  -- ^ The maximum difference between expected and actual
+                     -> Double  -- ^ The expected value
+                     -> Double  -- ^ The actual value
+                     -> Assertion
+assertAlmostEqual preface delta expected actual = 
+  unless (abs (expected - actual) < delta) (assertFailure msg)
+  where msg = (if null preface then "" else preface ++ "\n") ++
+               "expected: " ++ show expected ++ "\n but got: " ++ show actual
+
+delta = 1**(-10)
+
 testEqual label val1 val2 = TestLabel label (TestCase (assertEqual label val1 val2))
+testAlmostEqual label val1 val2 = TestLabel label (TestCase (assertAlmostEqual label delta val1 val2))
 
---test1 = TestCase (assertEqual "ae" 0.0 (ae 3.4 3.4)
---test2 = TestCase (assertEqual "ae" 1.0 (ae 2.0 3.0))
+aeTests = TestList [ testEqual       "ae1" 0.0 (ae 3.4 3.4)
+                   , testAlmostEqual "ae2" 1.0 (ae 3.4 4.4)
+                   , testEqual       "ae3" 2   (ae 9   11 )
+                   ]
 
---tests = TestList [TestLabel "aeCases" test1, TestLabel "ae2" test2]
+maeTests = TestList [ testEqual       "mae1" 1.0 (mae [0..10] [1..11])
+                    , testEqual       "mae2" 0.0 (mae [0,0.5..2] [0,0.5..2])
+                    , testEqual       "mae3" 0.25 (mae [1,2,3,4] [1,2,3,5])
+                    ]
 
-tests = TestList [ testEqual "ae" 0.0 (ae 3.4 3.4)
-                 , testEqual "se" 0.0 (se 3.4 3.4)
-                 , testEqual "se" 4.0 (se 1.0 3.0)
-                 , testEqual "ap" 1.0 (apk 3 [1..3] [1..3])
-                 ]
+mseTests = TestList [ testEqual       "mse1" 1.0 (mse [0..10] [1..11])
+                    , testEqual       "mse2" 0.0 (mse [0,0.5..2] [0,0.5..2])
+                    , testEqual       "mse3" 1.0 (mse [1,2,3,4] [1,2,3,6])
+                    ]
 
+rmseTests = TestList [ testEqual       "rmse1" 1.0 (rmse [0..10] [1..11])
+                     , testEqual       "rmse2" 0.0 (rmse [0,0.5..2] [0,0.5..2])
+                     , testEqual       "rmse3" 0.5 (rmse [1,2,3,4] [1,2,3,5])
+                     ]
 
-main = runTestTT tests
+seTests = TestList [ testEqual       "se1" 0.0 (se 3.4 3.4)
+                   , testAlmostEqual "se2" 1.0 (se 3.4 4.4)
+                   , testEqual       "se3" 4   (se 9   11 )
+                   ]
+
+sleTests = TestList [ testEqual       "sle1" 0.0 (sle 3.4 3.4)
+                    , testAlmostEqual "sle2" 1.0 (sle ((exp 2)-1) ((exp 1)-1))
+                    ]
+
+allTests = TestList [ aeTests
+                    , maeTests
+                    , mseTests
+                    , rmseTests
+                    , seTests
+                    , sleTests
+                    ]
+
+main = runTestTT allTests
