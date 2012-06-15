@@ -25,8 +25,16 @@ se x y = (x-y)^2
 sle :: Double -> Double -> Double
 sle x y = ((log (x+1)) - (log (y+1)))^2
 
+infinity :: Double
+infinity = -(log 0)
+
 meanZipWith :: (a -> b -> Double) -> [a] -> [b] -> Double
 meanZipWith = ((mean .) .) . zipWith
+
+meanInfZipWith :: (a -> b -> Double) -> [a] -> [b] -> Double
+meanInfZipWith f a1 a2
+    | any (==infinity) (zipWith f a1 a2) = infinity
+    | otherwise = meanZipWith f a1 a2
 
 mae :: [Double] -> [Double] -> Double
 mae = meanZipWith ae
@@ -48,7 +56,7 @@ ll 1 y = -log y
 ll 0 y = -log (1-y)
 
 logLoss :: [Double] -> [Double] -> Double
-logLoss = meanZipWith ll
+logLoss = meanInfZipWith ll
 
 apk :: Int -> [Integer] -> [Integer] -> Double
 apk k actual predicted = (apsum actual (take k predicted) [] 0.0 0.0 0.0) / (fromIntegral (min k (length actual))) where

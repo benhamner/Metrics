@@ -15,6 +15,8 @@ assertAlmostEqual preface delta expected actual =
 
 delta = 1**(-10)
 
+infinity = -(log 0) -- should be a better way to do this
+
 testEqual label val1 val2 = TestLabel label (TestCase (assertEqual label val1 val2))
 testAlmostEqual label val1 val2 = TestLabel label (TestCase (assertAlmostEqual label delta val1 val2))
 
@@ -22,6 +24,17 @@ aeTests = TestList [ testEqual       "ae1" 0.0 (ae 3.4 3.4)
                    , testAlmostEqual "ae2" 1.0 (ae 3.4 4.4)
                    , testEqual       "ae3" 2   (ae 9   11 )
                    ]
+
+llTests = TestList [ testEqual       "ll1" 0.0 (ll 1 1)
+                   , testEqual       "ll2" infinity (ll 1 0)
+                   , testEqual       "ll3" infinity (ll 0 1)
+                   , testEqual       "ll4" (- (log 0.5)) (ll 0 0.5)
+                   ]
+
+logLossTests = TestList [ testEqual       "logLoss1" 0.0 (logLoss [1, 1, 0, 0] [1, 1, 0, 0])
+                        , testEqual       "logLoss2" infinity (logLoss [1, 1, 0, 0] [1, 1, 1, 0])
+                        , testEqual       "logLoss3" 1.881797068998267 (logLoss [1, 1, 1, 0, 0, 0] [0.5, 0.1, 0.01, 0.9, 0.75, 0.001])
+                        ]
 
 maeTests = TestList [ testEqual       "mae1" 1.0 (mae [0..10] [1..11])
                     , testEqual       "mae2" 0.0 (mae [0,0.5..2] [0,0.5..2])
@@ -58,6 +71,8 @@ sleTests = TestList [ testEqual       "sle1" 0.0 (sle 3.4 3.4)
                     ]
 
 allTests = TestList [ aeTests
+                    , llTests
+                    , logLossTests
                     , maeTests
                     , mseTests
                     , msleTests
