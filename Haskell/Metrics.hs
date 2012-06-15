@@ -23,7 +23,7 @@ se :: Num a => a -> a -> a
 se x y = (x-y)^2
 
 sle :: Double -> Double -> Double
-sle x y = ((log x+1) - (log y+1))^2
+sle x y = ((log (x+1)) - (log (y+1)))^2
 
 meanZipWith :: (a -> b -> Double) -> [a] -> [b] -> Double
 meanZipWith = ((mean .) .) . zipWith

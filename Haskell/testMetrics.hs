@@ -33,6 +33,11 @@ mseTests = TestList [ testEqual       "mse1" 1.0 (mse [0..10] [1..11])
                     , testEqual       "mse3" 1.0 (mse [1,2,3,4] [1,2,3,6])
                     ]
 
+msleTests = TestList [ testEqual       "msle1" 1.0 (msle [(exp 2)-1] [exp(1)-1])
+                     , testEqual       "msle2" 0.0 (msle [0,0.5..2] [0,0.5..2])
+                     , testEqual       "msle3" 0.25 (msle [1,2,3,((exp 1)-1)] [1,2,3,((exp 2)-1)])
+                     ]
+
 rmseTests = TestList [ testEqual       "rmse1" 1.0 (rmse [0..10] [1..11])
                      , testEqual       "rmse2" 0.0 (rmse [0,0.5..2] [0,0.5..2])
                      , testEqual       "rmse3" 0.5 (rmse [1,2,3,4] [1,2,3,5])
@@ -50,6 +55,7 @@ sleTests = TestList [ testEqual       "sle1" 0.0 (sle 3.4 3.4)
 allTests = TestList [ aeTests
                     , maeTests
                     , mseTests
+                    , msleTests
                     , rmseTests
                     , seTests
                     , sleTests
