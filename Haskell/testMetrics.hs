@@ -3,11 +3,7 @@ import Control.Monad (unless)
 import Test.HUnit
 import Metrics
 
-assertAlmostEqual :: String  -- ^ The message prefix
-                     -> Double  -- ^ The maximum difference between expected and actual
-                     -> Double  -- ^ The expected value
-                     -> Double  -- ^ The actual value
-                     -> Assertion
+assertAlmostEqual :: String -> Double -> Double -> Double -> Assertion
 assertAlmostEqual preface delta expected actual = 
   unless (abs (expected - actual) < delta) (assertFailure msg)
   where msg = (if null preface then "" else preface ++ "\n") ++
@@ -25,6 +21,14 @@ aeTests = TestList [ testEqual       "ae1" 0.0 (ae 3.4 3.4)
                    , testEqual       "ae3" 2   (ae 9   11 )
                    ]
 
+apkTests = TestList [ testEqual       "apk1" 0.25 (apk 2 [1..5] [6, 4, 7, 1, 2])
+                    , testEqual       "apk2" 0.2 (apk 5 [1..5] [1, 1, 1, 1, 1])
+                    , testEqual       "apk3" 1.0 (apk 20 [1..100] ([1..20]++[200..600]))
+                    , testAlmostEqual "apk4" (5/6) (apk 3 [1,3] [1..5])
+                    , testEqual       "apk5" (1/3) (apk 3 [1..3] [1,1,1])
+                    , testEqual       "apk6" (2/3) (apk 3 [1..3] [1,2,1])
+                    ]
+
 llTests = TestList [ testEqual       "ll1" 0.0 (ll 1 1)
                    , testEqual       "ll2" infinity (ll 1 0)
                    , testEqual       "ll3" infinity (ll 0 1)
@@ -40,6 +44,13 @@ maeTests = TestList [ testEqual       "mae1" 1.0 (mae [0..10] [1..11])
                     , testEqual       "mae2" 0.0 (mae [0,0.5..2] [0,0.5..2])
                     , testEqual       "mae3" 0.25 (mae [1,2,3,4] [1,2,3,5])
                     ]
+
+mapkTests = TestList [ testAlmostEqual "mapk1" (5/6) (mapk 10 [[1..5],[1..3]] [[1..10],[1,2]++[4..11]++[3]])
+                     , testEqual       "mapk2" 1.0 (mapk 3 [[1..4]] [[1..4]])
+                     , testAlmostEqual "mapk3" 0.685185185185185 (mapk 3 [[1,3,4],[1,2,4],[1,3]] [[1..5],[1..5],[1..5]])
+                     , testEqual       "mapk4" 0.26 (mapk 5 [[1..5],[1..5]] [[6,4,7,1,2],[1,1,1,1,1]])
+                     , testAlmostEqual "mapk5" (11/18) (mapk 3 [[1,3],[1..3],[1..3]] [[1..5],[1,1,1],[1,2,1]])
+                     ]
 
 mseTests = TestList [ testEqual       "mse1" 1.0 (mse [0..10] [1..11])
                     , testEqual       "mse2" 0.0 (mse [0,0.5..2] [0,0.5..2])
@@ -71,9 +82,11 @@ sleTests = TestList [ testEqual       "sle1" 0.0 (sle 3.4 3.4)
                     ]
 
 allTests = TestList [ aeTests
+                    , apkTests
                     , llTests
                     , logLossTests
                     , maeTests
+                    , mapkTests
                     , mseTests
                     , msleTests
                     , rmseTests
