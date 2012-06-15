@@ -12,8 +12,10 @@ module Metrics
     , logLoss
     , apk
     , mapk
+    , auc, fstEqual, auc1, sumRank, sumEl
     ) where
 
+import Data.List (groupBy, sort)
 import Math.Statistics (mean)
 
 ae :: Num a => a -> a -> a
@@ -67,3 +69,15 @@ apk k actual predicted = (apsum actual (take k predicted) [] 0.0 0.0 0.0) / (fro
 
 mapk :: Int -> [[Integer]] -> [[Integer]] -> Double
 mapk k = meanZipWith (apk k)
+
+auc :: [Double] -> [Double] -> Double
+auc a p = ((sumRank a p) - (sumEl 1 a)*(((sumEl 1 a)+1)/2.0)) / ((sumEl 1 a)*(sumEl 0 a))
+
+fstEqual x y = (fst x) == (fst y)
+auc1 actual predicted = groupBy fstEqual (sort (zip predicted actual))
+sumRank actual predicted = sumRankAccum (auc1 actual predicted) 0.0 0 where
+    sumRankAccum [] rSum r = rSum
+    sumRankAccum (x:xs) rSum r = sumRankAccum xs (rSum+curPos*(r+curRank)) (r+curRank) where
+        curRank = (fromIntegral (1+(length x))) / 2.0
+        curPos = sum [1.0 | el <- x, (snd el)==1]
+sumEl el a = fromIntegral (length (filter (==el) a))

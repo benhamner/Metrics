@@ -11,7 +11,7 @@ EVALUATION METRICS
 ------------------
 
  - AveragePrecisionAtK (M, H)
- - AUC (M)
+ - AUC (M, H)
  - ClassificationError (M)
  - LogLoss (M, H)
  - MAE (M, H)

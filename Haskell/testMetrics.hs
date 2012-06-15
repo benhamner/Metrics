@@ -29,6 +29,12 @@ apkTests = TestList [ testEqual       "apk1" 0.25 (apk 2 [1..5] [6, 4, 7, 1, 2])
                     , testEqual       "apk6" (2/3) (apk 3 [1..3] [1,2,1])
                     ]
 
+aucTests = TestList [ testEqual       "auc1" (1/3) (auc [1,0,1,1] [0.32,0.52,0.26,0.86])
+                    , testAlmostEqual "auc2" 1 (auc [1,0,1,0,1] [0.9,0.1,0.8,0.1,0.7])
+                    , testEqual       "auc3" (1/4)   (auc [0,1,1,0] [0.2,0.1,0.3,0.4])
+                    , testEqual       "auc4" 0.5   (auc [1,1,1,1,0,0,0,0,0,0] [1,1,1,1,1,1,1,1,1,1])
+                    ]
+
 llTests = TestList [ testEqual       "ll1" 0.0 (ll 1 1)
                    , testEqual       "ll2" infinity (ll 1 0)
                    , testEqual       "ll3" infinity (ll 0 1)
@@ -83,6 +89,7 @@ sleTests = TestList [ testEqual       "sle1" 0.0 (sle 3.4 3.4)
 
 allTests = TestList [ aeTests
                     , apkTests
+                    , aucTests
                     , llTests
                     , logLossTests
                     , maeTests
