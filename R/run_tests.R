@@ -1,6 +1,6 @@
 library('RUnit')
 
-source('quadratic_weighted_kappa.R')
+source('metrics.R')
 
 test.suite <- defineTestSuite("quadratic weighted kappa",
                               dirs = file.path("tests"),
