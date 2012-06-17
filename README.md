@@ -12,7 +12,7 @@ EVALUATION METRICS
 
  - AE (H, R)
  - AveragePrecisionAtK (M, H)
- - AUC (M, H)
+ - AUC (M, H, R)
  - ClassificationError (M)
  - LogLoss (M, H)
  - MAE (M, H, R)

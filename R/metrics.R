@@ -8,6 +8,15 @@ sle <- function (actual, predicted) (log(1+actual)-log(1+predicted))^2
 msle <- function (actual, predicted) mean(sle(actual, predicted))
 rmsle <- function (actual, predicted) sqrt(msle(actual, predicted))
 
+auc <- function(actual, predicted)
+{
+    r = rank(predicted)
+    n_pos = sum(actual==1)
+    n_neg = length(actual) - n_pos
+    auc = (sum(r[actual==1]) - n_pos*(n_pos+1)/2) / (n_pos*n_neg)
+    auc
+}
+
 ScoreQuadraticWeightedKappa <- function (rater.a , rater.b, 
                                         min.rating,
                                         max.rating) {
