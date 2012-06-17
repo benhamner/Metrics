@@ -1,3 +1,13 @@
+
+se <- function (actual, predicted) (actual-predicted)^2
+mse <- function (actual, predicted) mean(se(actual, predicted))
+rmse <- function (actual, predicted) sqrt(mse(actual, predicted))
+ae <- function (actual, predicted) abs(actual-predicted)
+mae <- function (actual, predicted) mean(ae(actual, predicted))
+sle <- function (actual, predicted) (log(1+actual)-log(1+predicted))^2
+msle <- function (actual, predicted) mean(sle(actual, predicted))
+rmsle <- function (actual, predicted) sqrt(msle(actual, predicted))
+
 ScoreQuadraticWeightedKappa <- function (rater.a , rater.b, 
                                         min.rating,
                                         max.rating) {
