@@ -2,9 +2,9 @@ library('RUnit')
 
 source('metrics.R')
 
-test.suite <- defineTestSuite("quadratic weighted kappa",
+test.suite <- defineTestSuite("Metrics",
                               dirs = file.path("tests"),
-                              testFileRegexp = '^\\d+\\.R')
+                              testFileRegexp = '^.+\\.R')
 
 test.result <- runTestSuite(test.suite)
 
