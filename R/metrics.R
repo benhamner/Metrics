@@ -10,12 +10,22 @@ rmsle <- function (actual, predicted) sqrt(msle(actual, predicted))
 
 auc <- function(actual, predicted)
 {
-    r = rank(predicted)
-    n_pos = sum(actual==1)
-    n_neg = length(actual) - n_pos
-    auc = (sum(r[actual==1]) - n_pos*(n_pos+1)/2) / (n_pos*n_neg)
+    r <- rank(predicted)
+    n_pos <- sum(actual==1)
+    n_neg <- length(actual) - n_pos
+    auc <- (sum(r[actual==1]) - n_pos*(n_pos+1)/2) / (n_pos*n_neg)
     auc
 }
+
+ll <- function(actual, predicted)
+{
+    score <- -(actual*log(predicted) + (1-actual)*log(1-predicted))
+    score[actual==predicted] = 0
+    score[is.nan(score)] <- Inf
+    score
+}
+
+logLoss <- function(actual, predicted) mean(ll(actual, predicted))
 
 ScoreQuadraticWeightedKappa <- function (rater.a , rater.b, 
                                         min.rating,
