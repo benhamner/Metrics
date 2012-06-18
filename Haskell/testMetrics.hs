@@ -35,6 +35,13 @@ aucTests = TestList [ testEqual       "auc1" (1/3) (auc [1,0,1,1] [0.32,0.52,0.2
                     , testEqual       "auc4" 0.5   (auc [1,1,1,1,0,0,0,0,0,0] [1,1,1,1,1,1,1,1,1,1])
                     ]
 
+ceTests = TestList [ testEqual "ce1" 0.0 (ce [1,1,1,0,0,0] [1,1,1,0,0,0])
+                   , testEqual "ce2" (1/6) (ce [1,1,1,0,0,0] [1,1,1,1,0,0])
+                   , testEqual "ce3" (1/4) (ce [1,2,3,4] [1,2,3,3])
+                   , testEqual "ce4" (1/3) (ce ["cat","dog","bird"] ["cat","dog","fish"])
+                   , testEqual "ce5" 1 (ce ["cat","dog","bird"] ["caat","doog","biird"])
+                   ]
+
 llTests = TestList [ testEqual       "ll1" 0.0 (ll 1 1)
                    , testEqual       "ll2" infinity (ll 1 0)
                    , testEqual       "ll3" infinity (ll 0 1)
@@ -90,6 +97,7 @@ sleTests = TestList [ testEqual       "sle1" 0.0 (sle 3.4 3.4)
 allTests = TestList [ aeTests
                     , apkTests
                     , aucTests
+                    , ceTests
                     , llTests
                     , logLossTests
                     , maeTests

@@ -13,6 +13,7 @@ module Metrics
     , apk
     , mapk
     , auc, fstEqual, auc1, sumRank, sumEl
+    , ce
     ) where
 
 import Data.List (groupBy, sort)
@@ -81,3 +82,8 @@ sumRank actual predicted = sumRankAccum (auc1 actual predicted) 0.0 0 where
         curRank = (fromIntegral (1+(length x))) / 2.0
         curPos = sum [1.0 | el <- x, (snd el)==1]
 sumEl el a = fromIntegral (length (filter (==el) a))
+
+ce :: Eq a => [a] -> [a] -> Double
+ce actual predicted = ((sum [1.0 | (a,p) <- (zip actual predicted), a/=p]) 
+                       / (fromIntegral (length actual)))
+
