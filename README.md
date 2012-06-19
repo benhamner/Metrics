@@ -13,13 +13,13 @@ EVALUATION METRICS
 <table>
 <tr><td>Evaluation Metric</td><td>Python</td><td>R</td><td>Haskell</td><td>MATLAB / Octave</td></tr>
 <tr><td>Absolute Error (AE)</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td></tr>
-<tr><td>Average Precision at K (APK, AP@K) </td><td></td><td></td><td>&#10003;</td><td>&#10003;</td></tr>
+<tr><td>Average Precision at K (APK, AP@K) </td><td> </td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td></tr>
 <tr><td>Area Under the ROC (AUC)</td><td></td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td></tr>
 <tr><td>Classification Error (CE)</td><td> </td><td> </td><td>&#10003;</td><td>&#10003;</td></tr>
 <tr><td>Log Loss (LL)</td><td> </td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td></tr>
 <tr><td>Mean Log Loss (LogLoss)</td><td> </td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td></tr>
 <tr><td>Mean Absolute Error (MAE)</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td></tr>
-<tr><td>Mean Average Precision at K (MAPK, MAP@K)</td><td> </td><td> </td><td>&#10003;</td><td>&#10003;</td></tr>
+<tr><td>Mean Average Precision at K (MAPK, MAP@K)</td><td> </td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td></tr>
 <tr><td>Mean Quadratic Weighted Kappa</td><td>&#10003;</td><td>&#10003;</td><td> </td><td>&#10003;</td></tr>
 <tr><td>Mean Squared Error (MSE)</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td></tr>
 <tr><td>Mean Squared Log Error (MSLE)</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td></tr>
