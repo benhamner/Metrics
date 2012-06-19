@@ -5,6 +5,8 @@
   mapk(k, actual, predicted)
 }
 \arguments{
+  \item{k}{max length of predicted sequence}
+
   \item{actual}{list of ground truth sets (vectors)}
 
   \item{predicted}{list of predicted sequences (vectors)}

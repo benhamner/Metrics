@@ -147,6 +147,7 @@ apk <- function(k, actual, predicted)
 #' This function computes the mean average precision at k
 #' of two lists of sequences.
 #'
+#' @param k max length of predicted sequence
 #' @param actual list of ground truth sets (vectors)
 #' @param predicted list of predicted sequences (vectors)
 #' @export
