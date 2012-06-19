@@ -1,7 +1,7 @@
-*Metrics* provides implementations of various supervised machine learning evaluation metrics in the following languages:
+**Metrics** provides implementations of various supervised machine learning evaluation metrics in the following languages:
  
- - [R](https://github.com/benhamner/Metrics/tree/master/R)
  - [Python](https://github.com/benhamner/Metrics/tree/master/Python)
+ - [R](https://github.com/benhamner/Metrics/tree/master/R)
  - [Haskell](https://github.com/benhamner/Metrics/tree/master/Haskell)
  - [MATLAB / Octave](https://github.com/benhamner/Metrics/tree/master/MATLAB)
 
