@@ -1,4 +1,14 @@
-Contains MATLAB/OCTAVE, R, Python, and Haskell implementations of various machine learning and predictive analytics evaluation metrics. All metrics here pass the same test cases as those on Kaggle's production system.
+*Metrics* provides implementations of various supervised machine learning evaluation metrics in the following languages:
+ 
+ - [R](https://github.com/benhamner/Metrics/tree/master/R)
+ - [Python](https://github.com/benhamner/Metrics/tree/master/Python)
+ - [Haskell](https://github.com/benhamner/Metrics/tree/master/Haskell)
+ - [MATLAB / Octave](https://github.com/benhamner/Metrics/tree/master/MATLAB)
+
+<table>
+<tr><td>Test</td><td>Row 2</td></tr>
+<tr><td>1</td><td>2</td>
+</table>
 
 ###Key###
 
