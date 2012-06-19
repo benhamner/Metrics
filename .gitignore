@@ -1,7 +1,5 @@
 *.pyc
 *.m~
 ..Rcheck
-Metrics*.tar.gz
 
-dist
 build
