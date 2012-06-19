@@ -10,7 +10,7 @@ EVALUATION METRICS
 
 <table>
 <tr><td>**Evaluation Metric**</td><td>**Python**</td><td>**R**</td>
-<td>**Haskell**</td>**MATLAB / Octave**</td></tr>
+<td>**Haskell**</td><td>**MATLAB / Octave**</td></tr>
 <tr><td>Absolute Error (AE)</td><td>&#10003;</td>&#10003;<td>&#10003;</td><td></td></tr>
 </table>
 
