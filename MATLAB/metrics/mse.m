@@ -3,4 +3,4 @@ function score = mse(actual, prediction)
 %
 %   Author: Ben Hamner (ben@benhamner.com)
 
-score = mean((actual(:)-prediction(:)).^2);
+score = mean(se(actual,prediction));

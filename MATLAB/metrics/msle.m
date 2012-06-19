@@ -3,4 +3,4 @@ function score = msle(actual, prediction)
 %
 %   Author: Ben Hamner (ben@benhamner.com)
 
-score = mean((log(1+actual(:))-log(1+prediction(:))).^2);
+score = mean(sle(actual, prediction));

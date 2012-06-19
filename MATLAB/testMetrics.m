@@ -5,6 +5,7 @@ function testMetrics()
 
 fprintf('TESTING METRICS\n');
 
+testAE;
 testAveragePrecisionAtK;
 testAUC;
 testClassificationError;
@@ -16,5 +17,7 @@ testMSE;
 testMSLE;
 testRMSE;
 testRMSLE;
+testSLE;
+testSE;
 
 fprintf('ALL TESTS PASSED\n');
