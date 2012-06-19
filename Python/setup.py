@@ -3,7 +3,7 @@
 from distutils.core import setup
 
 setup(name='metrics',
-      version='0.1',
+      version='0.1.1',
       description='Machine Learning Evaluation Metrics',
       author = 'Ben Hamner',
       author_email = 'ben@benhamner.com',
