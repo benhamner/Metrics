@@ -8,3 +8,5 @@ Version: 0.1
 Maintainer: Ben Hamner <ben@benhamner.com>
 Author: Ben Hamner <ben@benhamner.com>
 License: BSD
+Collate:
+    'metrics.r'
