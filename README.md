@@ -5,20 +5,14 @@
  - [**Haskell**](https://github.com/benhamner/Metrics/tree/master/Haskell)
  - [**MATLAB / Octave**](https://github.com/benhamner/Metrics/tree/master/MATLAB)
 
-<table>
-<tr><td>Test</td><td>Row 2</td></tr>
-<tr><td>1</td><td>2</td></tr>
-</table>
-
-###Key###
-
- - (M) Matlab Implementation
- - (P) Python Implementation
- - (R) R Implementation
- - (H) Haskell Implementation
-
 EVALUATION METRICS
 ------------------
+
+<table>
+<tr><td>**Evaluation Metric**</td><td>**Python**</td><td>**R**</td>
+<td>**Haskell**</td>**MATLAB / Octave**</td></tr>
+<tr><td>Absolute Error (AE)</td><td>&#10003;</td>&#10003;<td>&#10003;</td><td></td></tr>
+</table>
 
  - AE (H, P, R)
  - AveragePrecisionAtK (M, H)
