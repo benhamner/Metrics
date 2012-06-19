@@ -7,6 +7,8 @@ function score=metrics(metric_name, actual, predicted, varargin)
 %   Author: Ben Hamner (ben@benhamner.com)
 
 switch lower(metric_name)
+    case 'ae'
+        score = ae(actual, predicted);
     case 'averageprecisionatk'
         if isempty(varargin)
             score = averagePrecisionAtK(actual, predicted);
@@ -23,6 +25,8 @@ switch lower(metric_name)
         score = auc(actual, predicted);
     case 'classificationerror'
         score = classificationError(actual, predicted);
+    case 'll'
+        score = ll(actual, predicted);
     case 'logloss'
         score = logLoss(actual, predicted);
     case 'quadraticweightedkappa'
@@ -71,4 +75,8 @@ switch lower(metric_name)
         score = rmsle(actual, predicted);
     case 'rootmeansquaredlogerror'
         score = rmsle(actual, predicted);
+    case 'se'
+        score = se(actual, predicted);
+    case 'sle'
+        score = sle(actual, predicted);
 end

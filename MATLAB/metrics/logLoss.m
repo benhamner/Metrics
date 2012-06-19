@@ -7,7 +7,4 @@ function score = logLoss(actual, posterior)
 %
 %   Author: Ben Hamner (ben@benhamner.com)
 
-losses = actual(:).*log(posterior(:)) + ...
-    (1-actual(:)).*log(1-posterior(:));
-losses(isnan(losses) & ~isinf(losses)) = 0;
-score = -mean(losses);
+score = mean(ll(actual, posterior));
