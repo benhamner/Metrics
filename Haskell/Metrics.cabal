@@ -1,5 +1,5 @@
 Name:           Metrics
-Version:        0.1.1
+Version:        0.1.2
 Cabal-Version:  >= 1.2
 Build-Type:     Simple
 License:        BSD3
@@ -12,6 +12,6 @@ Synopsis:       Evaluation metrics commonly used in supervised machine learning
 Description:    Evaluation metrics commonly used in supervised machine learning
 
 Library
-    build-depends:      base >= 3 && <= 4
+    build-depends:      base >= 4 && < 5
                        ,hstats==0.3
     Exposed-modules:    Metrics
