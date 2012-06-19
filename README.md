@@ -10,22 +10,22 @@ Contains MATLAB/OCTAVE, R, Python, and Haskell implementations of various machin
 EVALUATION METRICS
 ------------------
 
- - AE (H, R)
+ - AE (H, P, R)
  - AveragePrecisionAtK (M, H)
  - AUC (M, H, R)
  - ClassificationError (M, H)
  - LL (H, R)
  - LogLoss (M, H, R)
- - MAE (M, H, R)
+ - MAE (M, H, P, R)
  - MeanAveragePrecisionAtK (M, H)
- - MeanQuadraticWeightedKappa (M, R)
- - MSLE (M, H, R)
- - MSE (M, H, R)
- - QuadraticWeightedKappa (M, R)
- - RMSE (M, H, R)
- - RMSLE (M, H, R)
- - SE (H, R)
- - SLE (H, R)
+ - MeanQuadraticWeightedKappa (M, P, R)
+ - MSLE (M, H, P, R)
+ - MSE (M, H, P, R)
+ - QuadraticWeightedKappa (M, P, R)
+ - RMSE (M, H, P, R)
+ - RMSLE (M, H, P, R)
+ - SE (H, P, R)
+ - SLE (H, P, R)
 
 FULLY IMPLEMENTED
 -----------------
