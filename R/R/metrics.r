@@ -1,13 +1,29 @@
 
+#' Compute the squared error
 se <- function (actual, predicted) (actual-predicted)^2
+
+#' Compute the mean squared error
 mse <- function (actual, predicted) mean(se(actual, predicted))
+
+#' Compute the root mean squared error
 rmse <- function (actual, predicted) sqrt(mse(actual, predicted))
+
+#' Compute the absolute error
 ae <- function (actual, predicted) abs(actual-predicted)
+
+#' Compute the mean absolute error
 mae <- function (actual, predicted) mean(ae(actual, predicted))
+
+#' Compute the squared log error
 sle <- function (actual, predicted) (log(1+actual)-log(1+predicted))^2
+
+#' Compute the mean squared log error
 msle <- function (actual, predicted) mean(sle(actual, predicted))
+
+#' Compute the root mean squared log error
 rmsle <- function (actual, predicted) sqrt(msle(actual, predicted))
 
+#' Compute the area under the ROC
 auc <- function(actual, predicted)
 {
     r <- rank(predicted)
@@ -17,6 +33,7 @@ auc <- function(actual, predicted)
     auc
 }
 
+#' Compute the log loss
 ll <- function(actual, predicted)
 {
     score <- -(actual*log(predicted) + (1-actual)*log(1-predicted))
@@ -25,8 +42,10 @@ ll <- function(actual, predicted)
     score
 }
 
+#' Compute the mean log loss
 logLoss <- function(actual, predicted) mean(ll(actual, predicted))
 
+#' Compute the average precision at k
 apk <- function(k, actual, predicted)
 {
     score <- 0.0
@@ -43,6 +62,7 @@ apk <- function(k, actual, predicted)
     score
 }
 
+#' Compute the mean average precision at k
 mapk <- function (k, actual, predicted)
 {
     scores <- rep(0, length(actual))
@@ -54,6 +74,7 @@ mapk <- function (k, actual, predicted)
     score
 }
 
+#' Compute the quadratic weighted kappa
 ScoreQuadraticWeightedKappa <- function (rater.a , rater.b, 
                                         min.rating,
                                         max.rating) {
@@ -87,6 +108,7 @@ ScoreQuadraticWeightedKappa <- function (rater.a , rater.b,
     kappa
 }
 
+#' Compute the mean quadratic weighted kappa
 MeanQuadraticWeightedKappa <- function (kappas, weights) {
 
     if (missing(weights)) {
