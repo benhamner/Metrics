@@ -4,7 +4,15 @@
 \usage{
   apk(k, actual, predicted)
 }
+\arguments{
+  \item{k}{max length of predicted sequence}
+
+  \item{actual}{ground truth set (vector)}
+
+  \item{predicted}{predicted sequence (vector)}
+}
 \description{
-  Compute the average precision at k
+  This function computes the average precision at k between
+  two sequences
 }
 

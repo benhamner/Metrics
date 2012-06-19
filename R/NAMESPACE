@@ -1,16 +1,16 @@
-export(ae,
-       apk,
-       auc,
-       ce,
-       ll,
-       logLoss,
-       mae,
-       mapk,
-       MeanQuadraticWeightedKappa,
-       mse,
-       msle,
-       rmse,
-       rmsle,
-       ScoreQuadraticWeightedKappa,
-       se,
-       sle)
+export(ae)
+export(apk)
+export(auc)
+export(ce)
+export(ll)
+export(logLoss)
+export(mae)
+export(mapk)
+export(MeanQuadraticWeightedKappa)
+export(mse)
+export(msle)
+export(rmse)
+export(rmsle)
+export(ScoreQuadraticWeightedKappa)
+export(se)
+export(sle)

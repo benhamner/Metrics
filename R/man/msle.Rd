@@ -4,7 +4,13 @@
 \usage{
   msle(actual, predicted)
 }
+\arguments{
+  \item{actual}{ground truth vector}
+
+  \item{predicted}{predicted vector}
+}
 \description{
-  Compute the mean squared log error
+  This function computes the mean squared log error between
+  two vectors
 }
 

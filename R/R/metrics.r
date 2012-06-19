@@ -1,29 +1,87 @@
-
 #' Compute the squared error
+#'
+#' This function computes the elementwise squared error for a
+#' number or a vector
+#'
+#' @param actual ground truth number or vector
+#' @param predicted predicted number or vector
+#' @export
 se <- function (actual, predicted) (actual-predicted)^2
 
-#' Compute the mean squared error
+#' Compute the mean squared error#'
+#' This function computes the mean squared error between
+#' two vectors
+#'
+#' @param actual ground truth vector
+#' @param predicted predicted vector
+#' @export
 mse <- function (actual, predicted) mean(se(actual, predicted))
 
-#' Compute the root mean squared error
+#' Compute the root mean squared error#'
+#' This function computes the root mean squared error
+#' between two vectors
+#'
+#' @param actual ground truth vector
+#' @param predicted predicted vector
+#' @export
 rmse <- function (actual, predicted) sqrt(mse(actual, predicted))
 
-#' Compute the absolute error
+#' Compute the absolute error#'
+#' This function computes the elementwise absolute error for a
+#' number or a vector
+#'
+#' @param actual ground truth number or vector
+#' @param predicted predicted number or vector
+#' @export
 ae <- function (actual, predicted) abs(actual-predicted)
 
-#' Compute the mean absolute error
+#' Compute the mean absolute error#'
+#' This function computes the mean absolte error between
+#' two vectors
+#'
+#' @param actual ground truth vector
+#' @param predicted vector
+#' @export
 mae <- function (actual, predicted) mean(ae(actual, predicted))
 
 #' Compute the squared log error
+#'
+#' This function computes the elementwise squared log error for a
+#' number or a vector
+#'
+#' @param actual ground truth number or vector
+#' @param predicted predicted number or vector
+#' @export
 sle <- function (actual, predicted) (log(1+actual)-log(1+predicted))^2
 
 #' Compute the mean squared log error
+#'
+#' This function computes the mean squared log error between
+#' two vectors
+#'
+#' @param actual ground truth vector
+#' @param predicted predicted vector
+#' @export
 msle <- function (actual, predicted) mean(sle(actual, predicted))
 
 #' Compute the root mean squared log error
+#'
+#' This function computes the root mean squared log error between
+#' two vectors
+#'
+#' @param actual ground truth vector
+#' @param predicted predicted vector
+#' @export
 rmsle <- function (actual, predicted) sqrt(msle(actual, predicted))
 
-#' Compute the area under the ROC
+#' Compute the area under the ROC (AUC)
+#'
+#' This function computes the area under the receiver-operator
+#' characteristic (AUC)
+#'
+#' @param actual binary vector
+#' @param predicted real-valued vector that defines the ranking
+#' @export
 auc <- function(actual, predicted)
 {
     r <- rank(predicted)
@@ -34,6 +92,13 @@ auc <- function(actual, predicted)
 }
 
 #' Compute the log loss
+#'
+#' This function computes the elementwise log loss for a
+#' number or a vector
+#'
+#' @param actual binary ground truth number or vector
+#' @param predicted predicted number or vector
+#' @export
 ll <- function(actual, predicted)
 {
     score <- -(actual*log(predicted) + (1-actual)*log(1-predicted))
@@ -43,9 +108,24 @@ ll <- function(actual, predicted)
 }
 
 #' Compute the mean log loss
+#'
+#' This function computes the mean log loss between
+#' two vectors
+#'
+#' @param actual binary ground truth vector
+#' @param predicted predicted vector
+#' @export
 logLoss <- function(actual, predicted) mean(ll(actual, predicted))
 
 #' Compute the average precision at k
+#'
+#' This function computes the average precision at k
+#' between two sequences
+#'
+#' @param k max length of predicted sequence
+#' @param actual ground truth set (vector)
+#' @param predicted predicted sequence (vector)
+#' @export
 apk <- function(k, actual, predicted)
 {
     score <- 0.0
@@ -63,6 +143,13 @@ apk <- function(k, actual, predicted)
 }
 
 #' Compute the mean average precision at k
+#'
+#' This function computes the mean average precision at k
+#' of two lists of sequences.
+#'
+#' @param actual list of ground truth sets (vectors)
+#' @param predicted list of predicted sequences (vectors)
+#' @export
 mapk <- function (k, actual, predicted)
 {
     scores <- rep(0, length(actual))
@@ -75,6 +162,13 @@ mapk <- function (k, actual, predicted)
 }
 
 #' Compute the classification error
+#'
+#' This function computes the classification error
+#' between two vectors
+#'
+#' @param actual ground truth vector
+#' @param predicted predicted vector
+#' @export
 ce <- function (actual, predicted)
 {
     cntError <- 0.0
@@ -91,6 +185,15 @@ ce <- function (actual, predicted)
 }
 
 #' Compute the quadratic weighted kappa
+#'
+#' This function computes the quadratic weighted kappa
+#' between two vectors of integers
+#'
+#' @param rater.a is the first rater's ratings
+#' @param rater.b is the second rater's ratings
+#' @param min.rating is the minimum possible rating
+#' @param max.rating is the maximum possible rating
+#' @export
 ScoreQuadraticWeightedKappa <- function (rater.a , rater.b, 
                                         min.rating,
                                         max.rating) {
@@ -125,6 +228,13 @@ ScoreQuadraticWeightedKappa <- function (rater.a , rater.b,
 }
 
 #' Compute the mean quadratic weighted kappa
+#'
+#' This function computes the mean quadratic weighted
+#' kappa, which can optionally be weighted
+#'
+#' @param kappas is a vector of possible kappas
+#' @param weights is an optional vector of ratings
+#' @export
 MeanQuadraticWeightedKappa <- function (kappas, weights) {
 
     if (missing(weights)) {

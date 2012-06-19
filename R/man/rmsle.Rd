@@ -4,7 +4,13 @@
 \usage{
   rmsle(actual, predicted)
 }
+\arguments{
+  \item{actual}{ground truth vector}
+
+  \item{predicted}{predicted vector}
+}
 \description{
-  Compute the root mean squared log error
+  This function computes the root mean squared log error
+  between two vectors
 }
 

@@ -4,7 +4,13 @@
 \usage{
   logLoss(actual, predicted)
 }
+\arguments{
+  \item{actual}{binary ground truth vector}
+
+  \item{predicted}{predicted vector}
+}
 \description{
-  Compute the mean log loss
+  This function computes the mean log loss between two
+  vectors
 }
 

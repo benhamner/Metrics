@@ -4,7 +4,13 @@
 \usage{
   ce(actual, predicted)
 }
+\arguments{
+  \item{actual}{ground truth vector}
+
+  \item{predicted}{predicted vector}
+}
 \description{
-  Compute the classification error
+  This function computes the classification error between
+  two vectors
 }
 
