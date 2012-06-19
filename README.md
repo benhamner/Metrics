@@ -13,6 +13,19 @@ EVALUATION METRICS
 <tr><td>Absolute Error (AE)</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td><td></td></tr>
 <tr><td>Average Precision at K (APK, AP@K) </td><td></td><td></td><td>&#10003;</td><td>&#10003;</td></tr>
 <tr><td>Area Under the ROC (AUC)</td><td></td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td></tr>
+<tr><td>Classification Error (CE)</td><td> </td><td> </td><td>&#10003;</td><td>&#10003;</td></tr>
+<tr><td>Log Loss (LL)</td><td> </td><td>&#10003;</td><td>&#10003;</td><td> </td></tr>
+<tr><td>Mean Log Loss (LogLoss)</td><td> </td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td></tr>
+<tr><td>Mean Absolute Error (MAE)</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td></tr>
+<tr><td>Mean Average Precision at K (MAPK, MAP@K)</td><td> </td><td> </td><td>&#10003;</td><td>&#10003;</td></tr>
+<tr><td>Mean Quadratic Weighted Kappa</td><td>&#10003;</td><td>&#10003;</td><td> </td><td>&#10003;</td></tr>
+<tr><td>Mean Squared Error (MSE)</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td></tr>
+<tr><td>Mean Squared Log Error (MSLE)</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td></tr>
+<tr><td>Quadratic Weighted Kappa</td><td>&#10003;</td><td>&#10003;</td><td> </td><td>&#10003;</td></tr>
+<tr><td>Root Mean Squared Error (RMSE)</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td></tr>
+<tr><td>Root Mean Squared Log Error (RMSLE)</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td></tr>
+<tr><td>Squared Error (SE)</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td><td> </td></tr>
+<tr><td>Squared Log Error (SLE)</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td><td> </td></tr>
 </table>
 
  - AE (H, P, R)
