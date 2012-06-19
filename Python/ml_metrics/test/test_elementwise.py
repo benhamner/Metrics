@@ -1,7 +1,7 @@
 #! /usr/bin/env python2.7
 
 import unittest
-import metrics
+import ml_metrics as metrics
 import numpy as np
 
 class TestElementwise(unittest.TestCase):

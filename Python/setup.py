@@ -2,9 +2,9 @@
 
 from distutils.core import setup
 
-setup(name='metrics',
+setup(name='ml_metrics',
       version='0.1.1',
       description='Machine Learning Evaluation Metrics',
       author = 'Ben Hamner',
       author_email = 'ben@benhamner.com',
-      packages = ['metrics'])
+      packages = ['ml_metrics'])
