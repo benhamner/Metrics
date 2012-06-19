@@ -74,6 +74,22 @@ mapk <- function (k, actual, predicted)
     score
 }
 
+#' Compute the classification error
+ce <- function (actual, predicted)
+{
+    cntError <- 0.0
+    for (i in 1:length(actual))
+    {
+        if (actual[i] != predicted[i])
+        {
+            cntError <- cntError + 1
+        }
+    }
+
+    score = cntError / length(actual)
+    score
+}
+
 #' Compute the quadratic weighted kappa
 ScoreQuadraticWeightedKappa <- function (rater.a , rater.b, 
                                         min.rating,

@@ -1,3 +1,3 @@
 #! /usr/bin/env sh
 
-R -f run_tests.R
+R -f tests/test_all.r

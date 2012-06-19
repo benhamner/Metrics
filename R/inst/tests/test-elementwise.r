@@ -5,6 +5,15 @@ test.ae <- function()
     checkEqualsNumeric(ae(9, 11), 2)    
 }
 
+test.ce <- function()
+{
+    checkEqualsNumeric(ce(c(1,1,1,0,0,0),c(1,1,1,0,0,0)), 0.0)
+    checkEqualsNumeric(ce(c(1,1,1,0,0,0),c(1,1,1,1,0,0)), 1/6)
+    checkEqualsNumeric(ce(c(1,2,3,4),c(1,2,3,3)), 1/4)
+    checkEqualsNumeric(ce(c("cat","dog","bird"),c("cat","dog","fish")), 1/3)
+    checkEqualsNumeric(ce(c("cat","dog","bird"),c("caat","doog","biird")), 1.0)
+}
+
 test.mae <- function()
 {
     checkEqualsNumeric(mae(0:10, 1:11), 1)

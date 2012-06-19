@@ -1,5 +1,6 @@
 *.pyc
 *.m~
+..Rcheck
 
 dist
 build
