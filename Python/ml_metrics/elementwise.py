@@ -24,3 +24,19 @@ def se(actual, predicted):
 def sle(actual, predicted):
     return (np.power(np.log(np.array(actual)+1) - 
             np.log(np.array(predicted)+1), 2))
+
+def ll(actual, predicted):
+    actual = np.array(actual)
+    predicted = np.array(predicted)
+    err = np.seterr(all='ignore')
+    score = -(actual*np.log(predicted)+(1-actual)*np.log(1-predicted))
+    np.seterr(divide=err['divide'], over=err['over'], under=err['under'], invalid=err['invalid'])
+    if type(score)==np.ndarray:
+        score[np.isnan(score)] = 0
+    else:
+        if np.isnan(score):
+            score = 0
+    return score
+
+def log_loss(actual, predicted):
+    return np.mean(ll(actual, predicted))

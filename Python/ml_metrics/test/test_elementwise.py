@@ -11,6 +11,18 @@ class TestElementwise(unittest.TestCase):
         self.assertAlmostEqual(metrics.ae(3.4, 4.4), 1.0)
         self.assertAlmostEqual(metrics.ae(9, 11), 2)
     
+    def test_ll(self):
+        self.assertAlmostEqual(metrics.ll(1,1), 0)
+        self.assertAlmostEqual(metrics.ll(1,0), np.inf)
+        self.assertAlmostEqual(metrics.ll(0,1), np.inf)
+        self.assertAlmostEqual(metrics.ll(1,0.5), -np.log(0.5))
+
+    def test_logLoss(self):
+        self.assertAlmostEqual(metrics.log_loss([1,1,0,0],[1,1,0,0]), 0)
+        self.assertAlmostEqual(metrics.log_loss([1,1,0,0],[1,1,1,0]), np.inf)
+        self.assertAlmostEqual(metrics.log_loss([1,1,1,0,0,0],[0.5,0.1,0.01,0.9,0.75,0.001]), 1.881797068998267)
+        self.assertAlmostEqual(metrics.log_loss(1,0.5), -np.log(0.5))
+
     def test_mae(self):
         self.assertAlmostEqual(metrics.mae(range(0,11), range(1,12)), 1)
         self.assertAlmostEqual(metrics.mae([0,.5,1,1.5,2], [0,.5,1,1.5,2]), 0)
