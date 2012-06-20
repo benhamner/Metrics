@@ -38,6 +38,21 @@ TO IMPLEMENT
  - Gini
  - NormalizedGini
  - LevensteinDistance
+ - F1 score
+ - Multiclass log loss
+ - Lift
+ - Average Precision for binary classification
+ - precision / recall break-even point
+ - cross-entropy
+ - True Pos / False Pos / True Neg / False Neg rates
+ - precision / recall / sensitivity / specificity
+ - mutual information
+
+HIGHER LEVEL TRANSFORMATIONS TO HANDLE
+--------------------------------------
+
+ - GroupBy / Reduce
+ - Weight individual samples or groups
 
 PROPERTIES METRICS CAN HAVE
 ---------------------------
