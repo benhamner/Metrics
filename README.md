@@ -42,6 +42,8 @@ TO IMPLEMENT
 PROPERTIES METRICS CAN HAVE
 ---------------------------
 
+(Nonexhaustive and to be added in the future)
+
  - Min or Max (optimize through minimization or maximization)
  - Binary Classification
    - Scores predicted class labels
