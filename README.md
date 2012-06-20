@@ -17,7 +17,7 @@ EVALUATION METRICS
 <tr><td>Absolute Error (AE)</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td></tr>
 <tr><td>Average Precision at K (APK, AP@K) </td><td> </td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td></tr>
 <tr><td>Area Under the ROC (AUC)</td><td></td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td></tr>
-<tr><td>Classification Error (CE)</td><td> </td><td> </td><td>&#10003;</td><td>&#10003;</td></tr>
+<tr><td>Classification Error (CE)</td><td> </td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td></tr>
 <tr><td>Log Loss (LL)</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td></tr>
 <tr><td>Mean Log Loss (LogLoss)</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td></tr>
 <tr><td>Mean Absolute Error (MAE)</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td></tr>
