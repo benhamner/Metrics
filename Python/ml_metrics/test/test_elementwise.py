@@ -10,6 +10,18 @@ class TestElementwise(unittest.TestCase):
         self.assertAlmostEqual(metrics.ae(3.4, 3.4), 0)
         self.assertAlmostEqual(metrics.ae(3.4, 4.4), 1.0)
         self.assertAlmostEqual(metrics.ae(9, 11), 2)
+
+    def test_ce(self):
+        self.assertAlmostEqual(metrics.ce([1,1,1,0,0,0],
+                                          [1,1,1,0,0,0]), 0)
+        self.assertAlmostEqual(metrics.ce([1,1,1,0,0,0],
+                                          [1,1,1,1,0,0]), 1.0/6)
+        self.assertAlmostEqual(metrics.ce([1,2,3,4],
+                                          [1,2,3,3]), 0.25)
+        self.assertAlmostEqual(metrics.ce(["cat", "dog", "bird"],
+                                          ["cat", "dog", "fish"]), 1.0/3)
+        self.assertAlmostEqual(metrics.ce(["cat", "dog", "bird"],
+                                          ["caat", "doog", "biird"]), 1)
     
     def test_ll(self):
         self.assertAlmostEqual(metrics.ll(1,1), 0)
