@@ -1,5 +1,20 @@
 
 def tied_rank(x):
+    """
+    Computes the tied rank of elements in x.
+
+    This function computes the tied rank of elements in x.
+
+    Parameters
+    ----------
+    x : list of numbers, numpy array
+
+    Returns
+    -------
+    score : list of numbers
+            The tied rank f each element in x
+
+    """
     sorted_x = sorted(zip(x,range(len(x))))
     r = [0 for k in x]
     cur_val = sorted_x[0][0]
@@ -16,6 +31,25 @@ def tied_rank(x):
     return r
 
 def auc(actual, posterior):
+    """
+    Computes the area under the receiver-operater characteristic (AUC)
+
+    This function computes the AUC error metric for binary classification.
+
+    Parameters
+    ----------
+    actual : list of binary numbers, numpy array
+             The ground truth value
+    posterior : same type as actual
+                Defines a ranking on the binary numbers, from most likely to
+                be positive to least likely to be positive.
+
+    Returns
+    -------
+    score : double
+            The mean squared error between actual and posterior
+
+    """
     r = tied_rank(posterior)
     num_positive = len([0 for x in actual if x==1])
     num_negative = len(actual)-num_positive
