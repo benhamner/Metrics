@@ -3,7 +3,7 @@
 **Metrics** provides implementations of various supervised machine learning evaluation metrics in the following languages:
  
  - [**Python**](https://github.com/benhamner/Metrics/tree/master/Python) (easy_install ml_metrics)
- - [**R**](https://github.com/benhamner/Metrics/tree/master/R) (install from source, hasn't been added to CRAN yet)
+ - [**R**](https://github.com/benhamner/Metrics/tree/master/R) (packages.install("Metrics") from the R prompt)
  - [**Haskell**](https://github.com/benhamner/Metrics/tree/master/Haskell) (cabal install Metrics)
  - [**MATLAB / Octave**](https://github.com/benhamner/Metrics/tree/master/MATLAB) (clone the repo & run setup from the MATLAB command line)
 
