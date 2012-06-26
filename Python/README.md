@@ -32,4 +32,4 @@ Example Usage
 >>> metrics.se(1, 4)
 9
 ```
-```
+
