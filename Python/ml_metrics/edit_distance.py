@@ -1,6 +1,6 @@
 import numpy as np
 
-def levenshtein_distance(str1, str2):
+def levenshtein(str1, str2):
     m = len(str1)
     n = len(str2)
     distance_matrix = np.zeros((m+1, n+1))
