@@ -14,7 +14,18 @@ class TestEditDistance(unittest.TestCase):
         self.assertEqual(metrics.levenshtein_distance("cat", "cat"), 0)
         self.assertEqual(metrics.levenshtein_distance("hat", "cat"), 1)
         self.assertEqual(metrics.levenshtein_distance("at", "cat"), 1)
-
+        self.assertEqual(metrics.levenshtein_distance("", "a"), 1)
+        self.assertEqual(metrics.levenshtein_distance("a", ""), 1)
+        self.assertEqual(metrics.levenshtein_distance("", ""), 0)
+        self.assertEqual(metrics.levenshtein_distance("ant", "aunt"), 1)
+        self.assertEqual(metrics.levenshtein_distance("Samantha", "Sam"), 5)
+        self.assertEqual(metrics.levenshtein_distance("Flomax", "Volmax"), 3)
+        self.assertEqual(metrics.levenshtein_distance([1], [1]), 0)
+        self.assertEqual(metrics.levenshtein_distance([1], [1,2]), 1)
+        self.assertEqual(metrics.levenshtein_distance([1], [1,10]), 1)
+        self.assertEqual(metrics.levenshtein_distance([1,2], [10,20]), 2)
+        self.assertEqual(metrics.levenshtein_distance([1,2], [10,20,30]), 3)
+        self.assertEqual(metrics.levenshtein_distance([3,3,4], [4,1,4,3]), 3)
 
 if __name__ == '__main__':
     unittest.main()
