@@ -42,6 +42,28 @@ ceTests = TestList [ testEqual "ce1" 0.0 (ce [1,1,1,0,0,0] [1,1,1,0,0,0])
                    , testEqual "ce5" 1 (ce ["cat","dog","bird"] ["caat","doog","biird"])
                    ]
 
+levenshteinTests = TestList [ testEqual "levenshtein1" 5 (levenshtein "intention" "execution")
+                            , testEqual "levenshtein2" 3 (levenshtein "sitting" "kitten")
+                            , testEqual "levenshtein3" 3 (levenshtein "Saturday" "Sunday")
+                            , testEqual "levenshtein4" 7 (levenshtein "sitting" "")
+                            , testEqual "levenshtein5" 3 (levenshtein "" "Ben")
+                            , testEqual "levenshtein6" 0 (levenshtein "cat" "cat")
+                            , testEqual "levenshtein7" 1 (levenshtein "hat" "cat")
+                            , testEqual "levenshtein8" 1 (levenshtein "at" "cat")
+                            , testEqual "levenshtein9" 1 (levenshtein "" "a")
+                            , testEqual "levenshtein10" 1 (levenshtein "a" "")
+                            , testEqual "levenshtein11" 0 (levenshtein "" "")
+                            , testEqual "levenshtein12" 1 (levenshtein "ant" "aunt")
+                            , testEqual "levenshtein13" 5 (levenshtein "Samantha" "Sam")
+                            , testEqual "levenshtein14" 3 (levenshtein "Flomax" "Volmax")
+                            , testEqual "levenshtein15" 0 (levenshtein [1] [1])
+                            , testEqual "levenshtein16" 1 (levenshtein [1] [1,2])
+                            , testEqual "levenshtein17" 1 (levenshtein [1] [1,10])
+                            , testEqual "levenshtein18" 2 (levenshtein [1,2] [10,20])
+                            , testEqual "levenshtein19" 3 (levenshtein [1,2] [10,20,30])
+                            , testEqual "levenshtein20" 3 (levenshtein [3,3,4] [4,1,4,3])
+                            ]
+
 llTests = TestList [ testEqual       "ll1" 0.0 (ll 1 1)
                    , testEqual       "ll2" infinity (ll 1 0)
                    , testEqual       "ll3" infinity (ll 0 1)
@@ -98,6 +120,7 @@ allTests = TestList [ aeTests
                     , apkTests
                     , aucTests
                     , ceTests
+                    , levenshteinTests
                     , llTests
                     , logLossTests
                     , maeTests
