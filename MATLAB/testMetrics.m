@@ -9,6 +9,7 @@ testAE;
 testAveragePrecisionAtK;
 testAUC;
 testClassificationError;
+testLevenshtein;
 testLL;
 testLogLoss;
 testMAE;

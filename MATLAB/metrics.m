@@ -25,6 +25,8 @@ switch lower(metric_name)
         score = auc(actual, predicted);
     case 'classificationerror'
         score = classificationError(actual, predicted);
+    case 'levenshtein'
+        score = levenshtein(actual, predicted);
     case 'll'
         score = ll(actual, predicted);
     case 'logloss'
