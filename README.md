@@ -38,8 +38,6 @@ EVALUATION METRICS
 TO IMPLEMENT
 ------------
 
- - Gini
- - NormalizedGini
  - F1 score
  - Multiclass log loss
  - Lift
