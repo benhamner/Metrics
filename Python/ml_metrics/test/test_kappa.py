@@ -21,7 +21,7 @@ class Testquadratic_weighted_kappa(unittest.TestCase):
 
     def test_quadratic_weighted_kappa(self):
         kappa1 = metrics.quadratic_weighted_kappa([0, 0, 0], [3, 3, 3])
-        kappa2 = metrics.quadratic_weighted_kappa([2, 2, 2], [3, 3, 3])
+        kappa2 = metrics.quadratic_weighted_kappa([2, 2, 2], [3, 3, 3], min_rating=0, max_rating=3)
         self.assertNotAlmostEqual(kappa1, kappa2)
     
         kappa = metrics.quadratic_weighted_kappa([3, 3, 3], [3, 3, 3])
