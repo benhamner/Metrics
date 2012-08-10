@@ -7,4 +7,4 @@ setup(name='ml_metrics',
       description='Machine Learning Evaluation Metrics',
       author = 'Ben Hamner',
       author_email = 'ben@benhamner.com',
-      packages = ['ml_metrics'])
+      packages = ['ml_metrics', 'ml_metrics.custom'])
