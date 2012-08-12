@@ -7,3 +7,5 @@ build
 MANIFEST
 
 setup-config
+
+.DS_Store
