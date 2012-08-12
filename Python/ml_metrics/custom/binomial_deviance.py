@@ -26,8 +26,7 @@ def capped_log10_likelihood(actual, predicted):
     predicted[predicted>0.99]=0.99
 
     score = -(actual*np.log10(predicted)+(1-actual)*np.log10(1-predicted))
-    np.seterr(divide=err['divide'], over=err['over'],
-              under=err['under'], invalid=err['invalid'])
+    
     if type(score)==np.ndarray:
         score[np.isnan(score)] = 0
     else:
