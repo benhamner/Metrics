@@ -11,7 +11,7 @@ def confusion_matrix(rater_a, rater_b, min_rating=None, max_rating=None):
         min_rating = min(rater_a + rater_b)
     if max_rating is None:
         max_rating = max(rater_a + rater_b)
-    num_ratings = max_rating - min_rating + 1
+    num_ratings = int(max_rating - min_rating + 1)
     conf_mat = [[0 for i in range(num_ratings)]
                 for j in range(num_ratings)]
     for a, b in zip(rater_a, rater_b):
@@ -26,7 +26,7 @@ def histogram(ratings, min_rating=None, max_rating=None):
         min_rating = min(ratings)
     if max_rating is None:
         max_rating = max(ratings)
-    num_ratings = max_rating - min_rating + 1
+    num_ratings = int(max_rating - min_rating + 1)
     hist_ratings = [0 for x in range(num_ratings)]
     for r in ratings:
         hist_ratings[r - min_rating] += 1
