@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Metrics", "Metrics.csproj", "{B81D60BF-B084-4CF0-9321-00CF37D9D8BE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetricsTests", "MetricsTests\MetricsTests.csproj", "{A4E3069E-AD3C-456B-8B9D-4BEF50F3D24B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{B81D60BF-B084-4CF0-9321-00CF37D9D8BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B81D60BF-B084-4CF0-9321-00CF37D9D8BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B81D60BF-B084-4CF0-9321-00CF37D9D8BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4E3069E-AD3C-456B-8B9D-4BEF50F3D24B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4E3069E-AD3C-456B-8B9D-4BEF50F3D24B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4E3069E-AD3C-456B-8B9D-4BEF50F3D24B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4E3069E-AD3C-456B-8B9D-4BEF50F3D24B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
