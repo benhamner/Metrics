@@ -1,11 +1,65 @@
+# Python files
 *.pyc
 *.m~
 ..Rcheck
-
 build
-
 MANIFEST
-
 setup-config
 
-.DS_Store
+# Backup files
+*~
+
+# OS junk files
+[Tt]humbs.db
+*.DS_Store
+
+# Visual Studio files
+*.[Oo]bj
+*.exe
+*.pdb
+*.user
+*.aps
+*.pch
+*.vspscc
+*.vssscc
+*_i.c
+*_p.c
+*.ncb
+*.suo
+*.tlb
+*.tlh
+*.bak
+*.[Cc]ache
+*.ilk
+*.log
+*.sbr
+*.sdf
+ipch/
+obj/
+csx/
+[Bb]in
+[Dd]ebug*/
+[Rr]elease*/
+_[Uu]pgrade[Rr]eport_[Ff]iles*/
+UpgradeLog*
+*.azurePubxml
+Ankh.NoLoad
+
+# Tooling
+_ReSharper*/
+*.resharper
+[Tt]est[Rr]esult*
+*.dotCover
+
+# Project files
+[Bb]uild/
+
+# Subversion files
+.svn
+
+# Office Temp Files
+~$*
+
+# Git temp files
+*.orig
+
