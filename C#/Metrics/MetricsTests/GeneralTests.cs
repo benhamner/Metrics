@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.SqlTypes;
+using System.Collections.Generic;
 using System.IO;
 using Koalas;
 using Metrics;
@@ -9,7 +10,7 @@ namespace MetricsTests {
     class GeneralTests {
         [Test]
         public void MetricNotFoundTest() {
-            Assert.Throws<NullReferenceException>(() => Evaluate.Metric(new MemoryStream(), new MemoryStream(), "FakeEvaluationMetric"));
+            Assert.Throws<KeyNotFoundException>(() => Evaluate.Metric(new MemoryStream(), new MemoryStream(), "FakeEvaluationMetric"));
         }
 
     }

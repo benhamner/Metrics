@@ -16,21 +16,35 @@ namespace Metrics
     }
 
     public static class Evaluate {
-        public static double Metric(Stream solution, Stream submission, String metricName) {
+        private static Dictionary<string, Metric> _abbreviationToMetric = new Dictionary<string, Metric>(StringComparer.OrdinalIgnoreCase);
+        private static Dictionary<string, Metric> _nameToMetric = new Dictionary<string, Metric>(StringComparer.OrdinalIgnoreCase);
+
+        private static void InitializeMetricDictionaryViaReflection() {
             var metricType = typeof (Metric);
-            var metric = metricType.Assembly.GetTypes().Where(metricType.IsAssignableFrom).FirstOrDefault(
-                type => type.GetCustomAttributes(typeof(MetricAttribute), false)
-                    .OfType<MetricAttribute>()
-                    .Any(attr => attr.Abbreviation.Equals(metricName, StringComparison.InvariantCultureIgnoreCase)
-                        || attr.Name.Equals(metricName, StringComparison.InvariantCultureIgnoreCase)));
-            if (metric == null) {
-                throw new NullReferenceException("Metric not found");
+            var metricTypes = metricType.Assembly.GetTypes().Where(metricType.IsAssignableFrom).Where(type => type.GetCustomAttributes(typeof(MetricAttribute), false).Any());
+            foreach (var type in metricTypes) {
+                var attr = type.GetCustomAttributes(typeof (MetricAttribute), false).OfType<MetricAttribute>().First();
+                var metric = (Metric) Activator.CreateInstance(type);
+                _abbreviationToMetric.Add(attr.Abbreviation, metric);
+                _nameToMetric.Add(attr.Name, metric);
             }
-            var scorer = System.Activator.CreateInstance(metric) as Metric;
-            if (scorer == null) {
-                throw new NullReferenceException("Metric not found");
+        }
+
+        public static Metric GetMetric(string metricAbbreviationOrName) {
+            if (_abbreviationToMetric.Count==0) {
+                InitializeMetricDictionaryViaReflection();
             }
-            return scorer.Score(DataFrame.FromCsvData(solution), DataFrame.FromCsvData(submission));
+            if (_abbreviationToMetric.ContainsKey(metricAbbreviationOrName)) {
+                return _abbreviationToMetric[metricAbbreviationOrName];
+            }
+            if (_nameToMetric.ContainsKey(metricAbbreviationOrName)) {
+                return _nameToMetric[metricAbbreviationOrName];
+            }
+            throw new KeyNotFoundException("Metric " + metricAbbreviationOrName + " not found");
+        }
+
+        public static double Metric(Stream solution, Stream submission, String metricName) {
+            return GetMetric(metricName).Score(DataFrame.FromCsvData(solution), DataFrame.FromCsvData(submission));
         }
     }
 
