@@ -21,6 +21,12 @@ namespace MetricsTests
 4");
             var scoreKeeper = new MeanSquaredError();
             Assert.AreEqual(1.0, scoreKeeper.Score(solution, submission));
+
+            var solutionStream = Koalas.CsvReader.StringToStream("1.0\n2.0\n3");
+            var submissionStream = Koalas.CsvReader.StringToStream("2.0\n3.0\n4");
+            Assert.AreEqual(1.0, Evaluate.Metric(solutionStream, submissionStream, "mse"));
+            Assert.AreEqual(1.0, Evaluate.Metric(solutionStream, submissionStream, "MSE"));
+            Assert.AreEqual(1.0, Evaluate.Metric(solutionStream, submissionStream, "mean squared error"));
         }
     }
 }

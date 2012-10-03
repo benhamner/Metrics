@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -32,7 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Koalas">
-      <HintPath>..\..\..\..\..\Dropbox\Code\Koalas\Koalas\bin\Debug\Koalas.dll</HintPath>
+      <HintPath>..\..\..\..\Koalas\Koalas\bin\Debug\Koalas.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\..\binaries\nunit\nunit.framework.dll</HintPath>
@@ -46,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GeneralTests.cs" />
     <Compile Include="MseTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

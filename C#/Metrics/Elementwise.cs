@@ -11,13 +11,17 @@ namespace Metrics
         public override string Name { get { throw new NotImplementedException(); } }
         public override string Description { get { throw new NotImplementedException(); } }
 
-        public override double Score(DataFrame solution, DataFrame submission) {
-            return solution.GetSeriesByType<Double>().Zip(submission.GetSeriesByType<Double>(), CellError).ToSeries().Mean();
+        public override double Score(DataFrame solution, DataFrame submission)
+        {
+            var actual = (Series<double>) solution[-1];
+            var predicted = (Series<double>) submission[-1];
+            return actual.Zip(predicted, CellError).ToSeries().Mean();
         }
 
         public abstract double CellError(double actual, double predicted);
     }
 
+    [Metric(Abbreviation = "MSE", Name = "Mean Squared Error")]
     public class MeanSquaredError : MeanError {
         public override double CellError(double actual, double predicted) {
             return Math.Pow(actual - predicted, 2.0);
