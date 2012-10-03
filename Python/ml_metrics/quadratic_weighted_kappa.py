@@ -1,6 +1,7 @@
 #! /usr/bin/env python2.7
 
 import numpy
+import pandas as pd
 
 def confusion_matrix(rater_a, rater_b, min_rating=None, max_rating=None):
     """
@@ -205,3 +206,11 @@ def mean_quadratic_weighted_kappa(kappas, weights=None):
     z = 0.5 * numpy.log((1 + kappas) / (1 - kappas)) * weights
     z = numpy.mean(z)
     return (numpy.exp(2 * z) - 1) / (numpy.exp(2 * z) + 1)
+
+def weighted_mean_quadratic_weighted_kappa(solution, submission):
+    predicted_score = submission[submission.columns[-1]].copy()
+    predicted_score.name = "predicted_score"
+    predicted_score.index = solution.index
+    combined = solution.join(predicted_score)
+    kappas = [quadratic_weighted_kappa(group[0][1]["essay_score"], group[0][1]["predicted_score"]) for group in combined.groupby(by="essay_set")]
+    return mean_quadratic_weighted_kappa(kappas)
