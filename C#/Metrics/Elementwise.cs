@@ -27,4 +27,11 @@ namespace Metrics
             return Math.Pow(actual - predicted, 2.0);
         }
     }
+
+    [Metric(Abbreviation = "MAE", Name = "Mean Absolute Error")]
+    public class MeanAbsoluteError : MeanError {
+        public override double CellError(double actual, double predicted) {
+            return Math.Abs(actual - predicted);
+        }
+    }
 }
