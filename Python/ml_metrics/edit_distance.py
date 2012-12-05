@@ -1,7 +1,14 @@
+from __future__ import division
 
-def levenshtein(s1, s2):
+def levenshtein(s1, s2, normalize=False):
+    """
+    s1: String
+    s2: String
+
+    normalize: divide edit distance by maximum length if true
+    """
     if len(s1) < len(s2):
-        return levenshtein(s2, s1)
+        return levenshtein(s2, s1, normalize)
     if not s2:
         return len(s1)
 
@@ -14,4 +21,7 @@ def levenshtein(s1, s2):
             substitutions = previous_row[j] + (c1 != c2)
             current_row.append(min(insertions, deletions, substitutions))
         previous_row = current_row
+
+    if normalize:
+        return (current_row[-1] / len(s1))
     return current_row[-1]

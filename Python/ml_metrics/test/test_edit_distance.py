@@ -1,5 +1,6 @@
 #! /usr/bin/env python2.7
 
+from __future__ import division
 import unittest
 import ml_metrics as metrics
 
@@ -26,6 +27,11 @@ class TestEditDistance(unittest.TestCase):
         self.assertEqual(metrics.levenshtein([1,2], [10,20]), 2)
         self.assertEqual(metrics.levenshtein([1,2], [10,20,30]), 3)
         self.assertEqual(metrics.levenshtein([3,3,4], [4,1,4,3]), 3)
+
+    def test_levenshtein_normalized(self):
+        self.assertEqual(metrics.levenshtein("intention", "execution", True), 5/9)
+        self.assertEqual(metrics.levenshtein("sitting", "kitten", normalize=True), 3/7)
+        self.assertEqual(metrics.levenshtein("Saturday", "Sunday", True), 3/8)
 
 if __name__ == '__main__':
     unittest.main()
