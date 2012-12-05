@@ -1,7 +1,8 @@
 #! /usr/bin/env python2.7
 
-import numpy
+import numpy as np
 import pandas as pd
+import pdb
 
 def confusion_matrix(rater_a, rater_b, min_rating=None, max_rating=None):
     """
@@ -54,11 +55,13 @@ def quadratic_weighted_kappa(rater_a, rater_b, min_rating = None, max_rating = N
     is the minimum possible rating, and max_rating is the maximum possible
     rating
     """
+    rater_a = np.array(rater_a, dtype=int)
+    rater_b = np.array(rater_b, dtype=int)
     assert(len(rater_a) == len(rater_b))
     if min_rating is None:
-        min_rating = min(rater_a + rater_b)
+        min_rating = min(min(rater_a), min(rater_b))
     if max_rating is None:
-        max_rating = max(rater_a + rater_b)
+        max_rating = max(max(rater_a), max(rater_b))
     conf_mat = confusion_matrix(rater_a, rater_b,
                                      min_rating, max_rating)
     num_ratings = len(conf_mat)
@@ -193,24 +196,28 @@ def mean_quadratic_weighted_kappa(kappas, weights=None):
     of weights that is the same size as kappas.  Weights are applied in the
     z-space
     """
-    kappas = numpy.array(kappas, dtype=float)
+    kappas = np.array(kappas, dtype=float)
     if weights is None:
-        weights = numpy.ones(numpy.shape(kappas))
+        weights = np.ones(np.shape(kappas))
     else:
-        weights = weights / numpy.mean(weights)
+        weights = weights / np.mean(weights)
 
     # ensure that kappas are in the range [-.999, .999]
-    kappas = numpy.array([min(x, .999) for x in kappas])
-    kappas = numpy.array([max(x, -.999) for x in kappas])
+    kappas = np.array([min(x, .999) for x in kappas])
+    kappas = np.array([max(x, -.999) for x in kappas])
 
-    z = 0.5 * numpy.log((1 + kappas) / (1 - kappas)) * weights
-    z = numpy.mean(z)
-    return (numpy.exp(2 * z) - 1) / (numpy.exp(2 * z) + 1)
+    z = 0.5 * np.log((1 + kappas) / (1 - kappas)) * weights
+    z = np.mean(z)
+    return (np.exp(2 * z) - 1) / (np.exp(2 * z) + 1)
 
 def weighted_mean_quadratic_weighted_kappa(solution, submission):
     predicted_score = submission[submission.columns[-1]].copy()
     predicted_score.name = "predicted_score"
-    predicted_score.index = solution.index
-    combined = solution.join(predicted_score)
-    kappas = [quadratic_weighted_kappa(group[0][1]["essay_score"], group[0][1]["predicted_score"]) for group in combined.groupby(by="essay_set")]
-    return mean_quadratic_weighted_kappa(kappas)
+    if predicted_score.index[0]==0:
+        predicted_score = predicted_score[:len(solution)]
+        predicted_score.index = solution.index
+    combined = solution.join(predicted_score, how="left")
+    groups = combined.groupby(by="essay_set")
+    kappas = [quadratic_weighted_kappa(group[1]["essay_score"], group[1]["predicted_score"]) for group in groups]
+    weights = [group[1]["essay_weight"].irow(0) for group in groups]
+    return mean_quadratic_weighted_kappa(kappas, weights=weights)

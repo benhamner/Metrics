@@ -7,9 +7,6 @@ using Koalas;
 namespace Metrics
 {
     public abstract class MeanError : Metric {
-        public override bool IsMax { get { throw new NotImplementedException(); } }
-        public override string Name { get { throw new NotImplementedException(); } }
-        public override string Description { get { throw new NotImplementedException(); } }
 
         public override double Score(DataFrame solution, DataFrame submission)
         {
