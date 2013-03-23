@@ -1,0 +1,8 @@
+language: python
+python:
+  - "3.3"
+  - "2.7"
+  - "2.6"
+install: pip install -r Python/requirements.txt --use-mirrors
+# command to run tests, e.g. python setup.py test
+script: sh Python/run_python_tests.sh
