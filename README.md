@@ -1,5 +1,7 @@
 **Note: the current releases of this toolbox are a beta release, to test working with Haskell's, Python's, and R's code repositories.**
 
+![Build Status](https://travis-ci.org/benhamner/Metrics.png)
+
 **Metrics** provides implementations of various supervised machine learning evaluation metrics in the following languages:
  
  - [**Python**](https://github.com/benhamner/Metrics/tree/master/Python) ```easy_install ml_metrics```
