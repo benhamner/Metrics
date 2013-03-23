@@ -1,6 +1,6 @@
 # octave tests
 cd MATLAB
-sudo apt-add-repository ppa:octave/stable
+yes | sudo apt-add-repository ppa:octave/stable
 sudo apt-get update
 sudo apt-get install -qq octave
 octave --eval setup.m
