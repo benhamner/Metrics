@@ -1,8 +1,6 @@
 language: python
 python:
   - "2.7"
-install: pip -q install -r Python/requirements.txt --use-mirrors
-# command to run tests, e.g. python setup.py test
 before_script:
   - cd Python
   - python setup.py install
