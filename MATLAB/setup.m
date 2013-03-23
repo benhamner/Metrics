@@ -5,12 +5,12 @@ function setup
 
 myDir = fileparts(mfilename('fullpath'));
 paths = genpath(myDir);
-paths = textscan(paths,'%s','delimiter',':');
+paths = strread(paths,'%s','delimiter',':');
 pathsToAdd = [];
 
 for i=1:length(paths)
     thisPath = paths{i};
-    thisPathSplit = textscan(thisPath,'%s','delimiter','/');
+    thisPathSplit = strread(thisPath,'%s','delimiter','/');
     addThisPath = 1;
     
     % Do not add any directories or files starting with a . or a ~
