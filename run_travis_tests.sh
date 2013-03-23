@@ -3,7 +3,7 @@ cd MATLAB
 yes | sudo apt-add-repository ppa:octave/stable &> add_octave_repo_output.txt
 sudo apt-get -qq update
 sudo apt-get -qq install octave &> install_octave_output.txt
-octave --eval setup.m
+octave -q --eval setup.m
 ./run_octave_tests.sh
 cd ..
 
