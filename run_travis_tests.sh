@@ -1,6 +1,7 @@
 # octave tests
-sudo apt-get install -qq octave
 cd MATLAB
+sudo apt-get install -qq octave
+octave --eval setup.m
 ./run_octave_tests.sh
 cd ..
 
