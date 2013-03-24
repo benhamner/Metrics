@@ -1,3 +1,3 @@
 #! /usr/bin/env sh
 
-octave -q --eval testMetrics.m
+octave -q --eval testMetrics
