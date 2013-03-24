@@ -1,6 +1,6 @@
 # octave tests
 cd MATLAB
-./install_octave_linux.sh > /dev/null 2>&1
+./install_octave_linux.sh
 octave -q --eval setup
 ./run_octave_tests.sh
 cd ..
