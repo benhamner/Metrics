@@ -13,7 +13,7 @@ cd ..
 
 # R tests
 sudo apt-get install r-base
-R CMD INSTALL -l R metrics
+R CMD INSTALL R
 cd R
 sh run_r_tests.sh
 cd ..
