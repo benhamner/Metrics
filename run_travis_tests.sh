@@ -12,7 +12,7 @@ python setup.py -q install > /dev/null 2>&1
 cd ..
 
 # R tests
-sudo apt-get install r-base
+sudo apt-get install r-base-dev
 sudo R CMD INSTALL R
 cd R
 sh run_r_tests.sh
