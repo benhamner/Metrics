@@ -27,3 +27,8 @@ cd R
 sudo R -f install_r_packages.r > /dev/null
 sh run_r_tests.sh
 cd ..
+
+# Starting to test C#
+sudo apt-get install mono-runtime
+gmcs hellomono.cs
+mono hellomono.exe
