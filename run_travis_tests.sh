@@ -12,9 +12,9 @@ python setup.py -q install > /dev/null 2>&1
 cd ..
 
 # R tests
-sudo apt-get install r-base-dev
-sudo R CMD INSTALL R
+sudo apt-get install r-base-dev > /dev/null 2>&1
+sudo R CMD INSTALL R > /dev/null
 cd R
-sudo R -f install_r_packages.r
+sudo R -f install_r_packages.r > /dev/null
 sh run_r_tests.sh
 cd ..
