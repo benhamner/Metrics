@@ -11,6 +11,15 @@ python setup.py -q install > /dev/null 2>&1
 ./run_python_tests.sh
 cd ..
 
+# Haskell tests 
+sudo apt-get install ghc6 ghc6-prof ghc6-doc cabal-install > /dev/null 2>&1
+cd Haskell
+sudo cabal update > /dev/null 2>&1
+sudo cabal install --ghc-options="-hide-package haskell98" > /dev/null 2>&1
+sudo cabal install HUnit > /dev/null 2>&1
+runhaskell testMetrics.hs
+cd ..
+
 # R tests
 sudo apt-get install r-base-dev > /dev/null 2>&1
 sudo R CMD INSTALL R > /dev/null
@@ -18,11 +27,3 @@ cd R
 sudo R -f install_r_packages.r > /dev/null
 sh run_r_tests.sh
 cd ..
-
-# Haskell tests 
-sudo apt-get install ghc6 ghc6-prof ghc6-doc cabal-install
-cd Haskell
-sudo cabal update
-sudo cabal install --ghc-options="-hide-package haskell98"
-sudo cabal install HUnit
-runhaskell testMetrics.hs
