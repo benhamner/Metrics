@@ -20,7 +20,7 @@ sh run_r_tests.sh
 cd ..
 
 # Haskell tests 
-sudo apt-get install ghc6 ghc6-prof ghc6-doc libghc6-library-dev
+sudo apt-get install ghc6 ghc6-prof ghc6-doc
 cd Haskell
 sudo cabal install
 runhaskell testMetrics.hs
