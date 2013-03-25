@@ -29,6 +29,6 @@ sh run_r_tests.sh
 cd ..
 
 # Starting to test C#
-sudo apt-get install mono-complete
+sudo apt-get install mono-complete > /dev/null 2>&1
 gmcs hellomono.cs
 mono hellomono.exe
