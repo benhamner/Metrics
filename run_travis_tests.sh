@@ -13,8 +13,8 @@ cd ..
 
 # R tests
 sudo apt-get install r-base-dev
-sudo R -f install_r_packages.r
 sudo R CMD INSTALL R
 cd R
+sudo R -f install_r_packages.r
 sh run_r_tests.sh
 cd ..
