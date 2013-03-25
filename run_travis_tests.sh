@@ -24,4 +24,5 @@ sudo apt-get install ghc6 ghc6-prof ghc6-doc cabal-install
 cd Haskell
 sudo cabal update
 sudo cabal install --ghc-options="-hide-package haskell98"
+sudo cabal install HUnit
 runhaskell testMetrics.hs
