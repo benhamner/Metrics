@@ -18,3 +18,9 @@ cd R
 sudo R -f install_r_packages.r > /dev/null
 sh run_r_tests.sh
 cd ..
+
+# Haskell tests 
+sudo apt-get install ghc6 ghc6-prof ghc6-doc libghc6-library-dev
+cd Haskell
+sudo cabal install
+runhaskell testMetrics.hs
