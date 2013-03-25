@@ -22,7 +22,7 @@ cd ..
 # Haskell tests 
 sudo apt-get install ghc6 ghc6-prof ghc6-doc cabal-install
 cd Haskell
-ghc-pkg hide haskell98
+sudo ghc-pkg hide haskell98
 sudo cabal update
 sudo cabal install
 runhaskell testMetrics.hs
