@@ -5,7 +5,7 @@ python:
 before_install:
     - deactivate
     - sudo apt-get update -qq
-    - sudo apt-get install -qq python-numpy python-scipy python-nose
+    - sudo apt-get install -qq python3-numpy python3-scipy python3-nose python-numpy python-scipy python-nose
     - virtualenv --system-site-packages ~/virtualenv/this
     - source ~/virtualenv/this/bin/activate
 install:
