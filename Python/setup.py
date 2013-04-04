@@ -1,9 +1,8 @@
-#!/usr/bin/env python2.7
+#!/usr/bin/env python
 
-import os
 from setuptools import setup
 
-requirements = [x.strip() for x in open(os.path.join(os.path.dirname(__file__), "requirements.txt"))]
+requirements = [x.strip() for x in open("requirements.txt")]
 
 # Automatically run 2to3 for Python 3 support
 extra = {}
