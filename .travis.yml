@@ -1,4 +1,6 @@
 language: python
 python:
   - "2.7"
+install:
+  - "pip install -r Python/requirements.txt --use-mirrors"
 script: sh -x run_travis_tests.sh
