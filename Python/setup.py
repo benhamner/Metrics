@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 from setuptools import setup
+import sys
 
 requirements = [x.strip() for x in open("requirements.txt")]
 
