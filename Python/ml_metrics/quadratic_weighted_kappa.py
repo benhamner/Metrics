@@ -1,8 +1,7 @@
 #! /usr/bin/env python2.7
 
 import numpy as np
-import pandas as pd
-import pdb
+
 
 def confusion_matrix(rater_a, rater_b, min_rating=None, max_rating=None):
     """
@@ -20,6 +19,7 @@ def confusion_matrix(rater_a, rater_b, min_rating=None, max_rating=None):
         conf_mat[a - min_rating][b - min_rating] += 1
     return conf_mat
 
+
 def histogram(ratings, min_rating=None, max_rating=None):
     """
     Returns the counts of each type of rating that a rater made
@@ -34,7 +34,8 @@ def histogram(ratings, min_rating=None, max_rating=None):
         hist_ratings[r - min_rating] += 1
     return hist_ratings
 
-def quadratic_weighted_kappa(rater_a, rater_b, min_rating = None, max_rating = None):
+
+def quadratic_weighted_kappa(rater_a, rater_b, min_rating=None, max_rating=None):
     """
     Calculates the quadratic weighted kappa
     quadratic_weighted_kappa calculates the quadratic weighted kappa
@@ -63,7 +64,7 @@ def quadratic_weighted_kappa(rater_a, rater_b, min_rating = None, max_rating = N
     if max_rating is None:
         max_rating = max(max(rater_a), max(rater_b))
     conf_mat = confusion_matrix(rater_a, rater_b,
-                                     min_rating, max_rating)
+                                min_rating, max_rating)
     num_ratings = len(conf_mat)
     num_scored_items = float(len(rater_a))
 
@@ -83,7 +84,8 @@ def quadratic_weighted_kappa(rater_a, rater_b, min_rating = None, max_rating = N
 
     return 1.0 - numerator / denominator
 
-def linear_weighted_kappa(rater_a, rater_b, min_rating = None, max_rating = None):
+
+def linear_weighted_kappa(rater_a, rater_b, min_rating=None, max_rating=None):
     """
     Calculates the linear weighted kappa
     linear_weighted_kappa calculates the linear weighted kappa
@@ -110,7 +112,7 @@ def linear_weighted_kappa(rater_a, rater_b, min_rating = None, max_rating = None
     if max_rating is None:
         max_rating = max(rater_a + rater_b)
     conf_mat = confusion_matrix(rater_a, rater_b,
-                                     min_rating, max_rating)
+                                min_rating, max_rating)
     num_ratings = len(conf_mat)
     num_scored_items = float(len(rater_a))
 
@@ -130,7 +132,8 @@ def linear_weighted_kappa(rater_a, rater_b, min_rating = None, max_rating = None
 
     return 1.0 - numerator / denominator
 
-def kappa(rater_a, rater_b, min_rating = None, max_rating = None):
+
+def kappa(rater_a, rater_b, min_rating=None, max_rating=None):
     """
     Calculates the kappa
     kappa calculates the kappa
@@ -157,7 +160,7 @@ def kappa(rater_a, rater_b, min_rating = None, max_rating = None):
     if max_rating is None:
         max_rating = max(rater_a + rater_b)
     conf_mat = confusion_matrix(rater_a, rater_b,
-                                     min_rating, max_rating)
+                                min_rating, max_rating)
     num_ratings = len(conf_mat)
     num_scored_items = float(len(rater_a))
 
@@ -179,6 +182,7 @@ def kappa(rater_a, rater_b, min_rating = None, max_rating = None):
             denominator += d * expected_count / num_scored_items
 
     return 1.0 - numerator / denominator
+
 
 def mean_quadratic_weighted_kappa(kappas, weights=None):
     """
@@ -210,10 +214,11 @@ def mean_quadratic_weighted_kappa(kappas, weights=None):
     z = np.mean(z)
     return (np.exp(2 * z) - 1) / (np.exp(2 * z) + 1)
 
+
 def weighted_mean_quadratic_weighted_kappa(solution, submission):
     predicted_score = submission[submission.columns[-1]].copy()
     predicted_score.name = "predicted_score"
-    if predicted_score.index[0]==0:
+    if predicted_score.index[0] == 0:
         predicted_score = predicted_score[:len(solution)]
         predicted_score.index = solution.index
     combined = solution.join(predicted_score, how="left")
