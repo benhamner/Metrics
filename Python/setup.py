@@ -11,7 +11,7 @@ if sys.version_info >= (3,):
     extra['use_2to3'] = True
 
 setup(name='ml_metrics',
-      version='0.1.2',
+      version='0.1.3',
       description='Machine Learning Evaluation Metrics',
       author = 'Ben Hamner',
       author_email = 'ben@benhamner.com',
