@@ -34,6 +34,12 @@ test.msle <- function()
     checkEqualsNumeric(msle(seq(0,2,0.5),seq(0,2,0.5)), 0)
     checkEqualsNumeric(msle(c(1,2,3,exp(1)-1),c(1,2,3,exp(2)-1)), 0.25)
 }
+test.rae <- function()
+{
+    checkEqualsNumeric(rae(0:10, 30:40), 11)
+    checkEqualsNumeric(rae(seq(0,2,0.5), seq(0,2,0.5)), 0.0)
+    checkEqualsNumeric(rae(1:4, c(1,2,3,5)), 0.25)
+}
 
 test.rmse <- function()
 {
@@ -47,6 +53,20 @@ test.rmsle <- function()
     checkEqualsNumeric(rmsle(c(exp(2)-1),c(exp(1)-1)), 1)
     checkEqualsNumeric(rmsle(seq(0,2,0.5),seq(0,2,0.5)), 0)
     checkEqualsNumeric(rmsle(c(1,2,3,exp(1)-1),c(1,2,3,exp(2)-1)), 0.5)
+}
+
+test.rrse <- function()
+{
+    checkEqualsNumeric(rrse(0:10, 2:12), sqrt(0.4))
+    checkEqualsNumeric(rrse(seq(0,2,0.5), seq(0,2,0.5)), 0.0)
+    checkEqualsNumeric(rrse(1:4, c(1,2,3,5)), sqrt(0.2))
+}
+
+test.rse <- function()
+{
+    checkEqualsNumeric(rse(0:10, 2:12), 0.4)
+    checkEqualsNumeric(rse(seq(0,2,0.5), seq(0,2,0.5)), 0.0)
+    checkEqualsNumeric(rse(1:4, c(1,2,3,5)), 0.2)
 }
 
 test.se <- function()
