@@ -74,6 +74,42 @@ msle <- function (actual, predicted) mean(sle(actual, predicted))
 #' @export
 rmsle <- function (actual, predicted) sqrt(msle(actual, predicted))
 
+#' Compute the relative squared error
+#'
+#' This function computes the relative squared error between
+#' two vectors
+#'
+#' @param actual ground truth vector
+#' @param predicted predicted vector
+#' @export
+rse <- function (actual, predicted)
+{
+    sum(se(actual, predicted)) / sum(se(actual, mean(actual)))
+}
+
+#' Compute the root relative squared error
+#'
+#' This function computes the root relative squared error between
+#' two vectors
+#'
+#' @param actual ground truth vector
+#' @param predicted predicted vector
+#' @export
+rrse <- function (actual, predicted) sqrt(rse(actual, predicted))
+
+#' Compute the relative absolute error
+#'
+#' This function computes the relative absolute error between
+#' two vectors
+#'
+#' @param actual ground truth vector
+#' @param predicted predicted vector
+#' @export
+rae <- function (actual, predicted)
+{
+    sum(ae(predicted, actual)) / sum(ae(actual, mean(actual)))
+}
+
 #' Compute the area under the ROC (AUC)
 #'
 #' This function computes the area under the receiver-operator
