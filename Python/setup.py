@@ -3,7 +3,10 @@
 from setuptools import setup
 import sys
 
-requirements = [x.strip() for x in open("requirements.txt")]
+requirements = [
+	"numpy", 
+	"pandas"
+	]
 
 # Automatically run 2to3 for Python 3 support
 extra = {}
