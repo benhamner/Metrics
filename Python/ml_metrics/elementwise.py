@@ -66,29 +66,6 @@ def mae(actual, predicted):
     """
     return np.mean(ae(actual, predicted))
 
-def mape(actual, predicted):
-    """
-    Computes the mean absolute percentage error.
-
-    This function computes the mean absolute percentage error between two lists
-    of numbers. 
-    BE CAREFUL: it can cause division-by-zero errors!
-
-    Parameters
-    ----------
-    actual : list of numbers, numpy array
-             The ground truth value
-    predicted : same type as actual
-                The predicted value
-
-    Returns
-    -------
-    score : double
-            The mean absolute percentage error between actual and predicted
-
-    """
-    return np.mean(np.abs(np.divide((np.array(actual) - np.array(predicted)), predicted))) * 100
-    
 def mse(actual, predicted):
     """
     Computes the mean squared error.
