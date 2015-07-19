@@ -293,3 +293,26 @@ MeanQuadraticWeightedKappa <- function (kappas, weights) {
     kappas <- z2r(kappas)
     kappas
 }
+
+#' Compute the f1 score
+#' This function computes the f1 score between
+#' two vectors.
+#'
+#' @param actual ground truth vector
+#' @param predicted predicted vector
+#' @export
+f1 <- function (actual, predicted)
+{
+  act <- unique(actual)
+  pred <- unique(predicted)
+  
+  tp <- length(intersect(act,pred))
+  fp <- length(setdiff(pred,act))
+  fn <- length(setdiff(act,pred))
+  
+  precision <- ifelse ((tp==0 & fp==0), 0, tp/(tp+fp))
+  recall <- ifelse ((tp==0 & fn==0), 0, tp/(tp+fn))
+  
+  score <- ifelse ((precision==0 & recall==0), 0, 2*precision*recall/(precision+recall))
+  score
+}
