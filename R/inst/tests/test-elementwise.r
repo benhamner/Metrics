@@ -81,3 +81,10 @@ test.sle <- function()
     checkEqualsNumeric(sle(3.4,3.4), 0)
     checkEqualsNumeric(sle(exp(2)-1,exp(1)-1), 1)
 }
+
+test.f1 <- function()
+{
+  checkEqualsNumeric(f1(c(3,4,5),c(3,4)), 0.8)
+  checkEqualsNumeric(f1(7,1), 0)
+  checkEqualsNumeric(f1(7,c(1,1)), 0)
+}
