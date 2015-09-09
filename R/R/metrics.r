@@ -189,6 +189,11 @@ apk <- function(k, actual, predicted)
 #' @export
 mapk <- function (k, actual, predicted)
 {
+    if( length(actual)==0 || length(predicted)==0 ) 
+    {
+	    return(0.0)
+    }
+
     scores <- rep(0, length(actual))
     for (i in 1:length(scores))
     {
