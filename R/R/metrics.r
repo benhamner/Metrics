@@ -265,7 +265,8 @@ ScoreQuadraticWeightedKappa <- function (rater.a , rater.b,
     weights <- outer(labels, labels, FUN <- function(x,y) (x-y)^2 )
 
     #calculate kappa
-    kappa <- 1 - sum(weights*confusion.mat)/sum(weights*expected.mat)
+    # kappa <- 1 - sum(weights*confusion.mat)/sum(weights*expected.mat)
+    kappa = ifelse(sum(weights*expected.mat) == 0, 1, 1 - sum(weights*confusion.mat)/sum(weights*expected.mat))
     kappa
 }
 
