@@ -8,7 +8,8 @@
 #' @export
 se <- function (actual, predicted) (actual-predicted)^2
 
-#' Compute the mean squared error#'
+#' Compute the mean squared error
+#'
 #' This function computes the mean squared error between
 #' two vectors
 #'
@@ -17,7 +18,8 @@ se <- function (actual, predicted) (actual-predicted)^2
 #' @export
 mse <- function (actual, predicted) mean(se(actual, predicted))
 
-#' Compute the root mean squared error#'
+#' Compute the root mean squared error
+#'
 #' This function computes the root mean squared error
 #' between two vectors
 #'
@@ -26,7 +28,8 @@ mse <- function (actual, predicted) mean(se(actual, predicted))
 #' @export
 rmse <- function (actual, predicted) sqrt(mse(actual, predicted))
 
-#' Compute the absolute error#'
+#' Compute the absolute error
+#'
 #' This function computes the elementwise absolute error for a
 #' number or a vector
 #'
@@ -35,7 +38,8 @@ rmse <- function (actual, predicted) sqrt(mse(actual, predicted))
 #' @export
 ae <- function (actual, predicted) abs(actual-predicted)
 
-#' Compute the mean absolute error#'
+#' Compute the mean absolute error
+#'
 #' This function computes the mean absolte error between
 #' two vectors
 #'
