@@ -10,7 +10,13 @@ pathsToAdd = [];
 
 for i=1:length(paths)
     thisPath = paths{i};
-    thisPathSplit = strread(thisPath,'%s','delimiter','/');
+    
+    if isunix
+        thisPathSplit = strread(thisPath,'%s','delimiter','/');
+    elseif ispc
+        thisPathSplit = strread(thisPath,'%s','delimiter','\\');
+    end  
+    
     addThisPath = 1;
     
     % Do not add any directories or files starting with a . or a ~
