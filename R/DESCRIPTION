@@ -10,3 +10,4 @@ Author: Ben Hamner <ben@benhamner.com>
 License: BSD
 Collate:
     'metrics.r'
+RoxygenNote: 5.0.1
