@@ -15,9 +15,10 @@ module Metrics
     , mapk
     , auc, fstEqual, auc1, sumRank, sumEl
     , ce
+    , f1
     ) where
 
-import Data.List (groupBy, sort)
+import Data.List ((\\), groupBy, intersect, nub, sort)
 import Math.Statistics (mean)
 
 ae :: Num a => a -> a -> a
@@ -87,6 +88,19 @@ sumEl el a = fromIntegral (length (filter (==el) a))
 ce :: Eq a => [a] -> [a] -> Double
 ce actual predicted = ((sum [1.0 | (a,p) <- (zip actual predicted), a/=p]) 
                        / (fromIntegral (length actual)))
+
+f1 :: Eq a => [a] -> [a] -> Double
+f1 actual predicted =
+    if precision == 0 && recall == 0
+    then 0
+    else 2 * precision * recall / (precision + recall)
+    where act = nub actual
+          pred = nub predicted
+          tp = fromIntegral $ length $ intersect act pred
+          fp = fromIntegral $ length $ pred \\ act
+          fn = fromIntegral $ length $ act \\ pred
+          precision = if tp == 0 && fp == 0 then 0 else tp / (tp + fp)
+          recall = if tp == 0 && fn == 0 then 0 else tp / (tp + fn)
 
 levenshtein :: Eq a => [a] -> [a] -> Int
 levenshtein s t =
