@@ -42,6 +42,11 @@ ceTests = TestList [ testEqual "ce1" 0.0 (ce [1,1,1,0,0,0] [1,1,1,0,0,0])
                    , testEqual "ce5" 1 (ce ["cat","dog","bird"] ["caat","doog","biird"])
                    ]
 
+f1Tests = TestList [ testEqual "f1-1" 0.8 (f1 [3,4,5] [3,4])
+                   , testEqual "f1-2" 0.0 (f1 [7,1] [0])
+                   , testEqual "f1-3" 0.0 (f1 [7] [1,1])
+                   ]
+
 levenshteinTests = TestList [ testEqual "levenshtein1" 5 (levenshtein "intention" "execution")
                             , testEqual "levenshtein2" 3 (levenshtein "sitting" "kitten")
                             , testEqual "levenshtein3" 3 (levenshtein "Saturday" "Sunday")
@@ -120,6 +125,7 @@ allTests = TestList [ aeTests
                     , apkTests
                     , aucTests
                     , ceTests
+                    , f1Tests
                     , levenshteinTests
                     , llTests
                     , logLossTests
