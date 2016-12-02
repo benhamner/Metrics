@@ -20,4 +20,6 @@ setup(name='ml_metrics',
       author_email = 'ben@benhamner.com',
       packages = ['ml_metrics', 'ml_metrics.custom'],
       install_requires = requirements,
+      license = 'BSD-2-Clause',
+      classifiers = ['License :: OSI Approved :: BSD License'],
       **extra)
