@@ -5,7 +5,6 @@ function score=metrics(metric_name, actual, predicted, varargin)
 %   Example: metrics('ap@k', actual, predicted, k)
 %
 %   Author: Ben Hamner (ben@benhamner.com)
-% add one test from haifeng 
 
 switch lower(metric_name)
     case 'ae'
