@@ -6,6 +6,9 @@ test.apk <- function()
     checkEqualsNumeric(apk(3, c(1,3), 1:5), 5/6)
     checkEqualsNumeric(apk(3, 1:3, c(1,1,1)), 1/3)
     checkEqualsNumeric(apk(3, 1:3, c(1,2,1)), 2/3)    
+    checkEqualsNumeric(apk(3, 1:3, numeric(0)), 0.0)
+    checkEqualsNumeric(apk(3, numeric(0), 1:3), 0.0)
+    checkEqualsNumeric(apk(3, numeric(0), numeric(0)), 0.0)
 }
 
 test.mapk <- function()
@@ -15,5 +18,5 @@ test.mapk <- function()
     checkEqualsNumeric(mapk(3, list(c(1,3,4),c(1,2,4),c(1,3)), list(1:5,1:5,1:5)), 0.685185185185185)
     checkEqualsNumeric(mapk(5, list(1:5,1:5), list(c(6,4,7,1,2),c(1,1,1,1,1))), 0.26)
     checkEqualsNumeric(mapk(3, list(c(1,3),1:3,1:3), list(1:5,c(1,1,1),c(1,2,1))), 11/18)
-
+    checkEqualsNumeric(mapk(3, list(), list()), 0.0)
 }

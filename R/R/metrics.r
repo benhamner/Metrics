@@ -164,6 +164,11 @@ logLoss <- function(actual, predicted) mean(ll(actual, predicted))
 #' @export
 apk <- function(k, actual, predicted)
 {
+    if (length(actual) == 0 || length(predicted) == 0) 
+    {
+        return(0.0)
+    }
+
     score <- 0.0
     cnt <- 0.0
     for (i in 1:min(k,length(predicted)))
