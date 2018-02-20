@@ -4,7 +4,7 @@ def apk(actual, predicted, k=10):
     """
     Computes the average precision at k.
 
-    This function computes the average prescision at k between two lists of
+    This function computes the average precision at k between two lists of
     items.
 
     Parameters
