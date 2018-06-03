@@ -22,6 +22,9 @@ def apk(actual, predicted, k=10):
             The average precision at k over the input lists
 
     """
+    if not actual:
+        return 1.0
+
     if len(predicted)>k:
         predicted = predicted[:k]
 
@@ -32,10 +35,6 @@ def apk(actual, predicted, k=10):
         if p in actual and p not in predicted[:i]:
             num_hits += 1.0
             score += num_hits / (i+1.0)
-
-    if not actual:
-        return 0.0
-
     return score / min(len(actual), k)
 
 def mapk(actual, predicted, k=10):
