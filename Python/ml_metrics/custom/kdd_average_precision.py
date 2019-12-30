@@ -7,7 +7,7 @@ def kdd_apk(actual, predicted, k=10):
     This modified version uses the number of actual clicks as the denominator,
     regardless of k.
 
-    This function computes the average prescision at k between two lists of
+    This function computes the average precision at k between two lists of
     items.
 
     Parameters
@@ -48,7 +48,7 @@ def kdd_mapk(actual, predicted, k=10):
     This modified version uses the number of actual clicks as the denominator,
     regardless of k.
 
-    This function computes the mean average prescision at k between two lists
+    This function computes the mean average precision at k between two lists
     of lists of items.
 
     Parameters
