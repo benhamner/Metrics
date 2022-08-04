@@ -42,7 +42,7 @@ def mapk(actual, predicted, k=10):
     """
     Computes the mean average precision at k.
 
-    This function computes the mean average prescision at k between two lists
+    This function computes the mean average precision at k between two lists
     of lists of items.
 
     Parameters
