@@ -3,7 +3,11 @@
 Installation
 ============
 
-To install from PyPI,
+To install from PyPI, you need setuptools<58.0 . 
+
+```
+pip install setuptools<58.0
+```
 
 ```
 pip install ml_metrics
