@@ -5,7 +5,8 @@ import sys
 
 requirements = [
 	"numpy", 
-	"pandas"
+	"pandas",
+	"setuptools<58.0"
 	]
 
 # Automatically run 2to3 for Python 3 support
